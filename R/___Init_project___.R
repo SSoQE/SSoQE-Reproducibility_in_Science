@@ -1,7 +1,7 @@
 #----------------------------------------------------------#
 #
 #
-#                     Project name
+#               Reproducibility in Science
 #
 #                     Project setup
 #
@@ -49,7 +49,7 @@ if (
   library(here)
 } else {
   # install package
-  utils::install.packages("here")
+  renv::install("here")
 
   # load the package
   library(here)
@@ -100,7 +100,7 @@ sapply(
     "usethis",
     "utils"
   ),
-  utils::install.packages,
+  renv::install,
   character.only = TRUE
 )
 
