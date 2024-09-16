@@ -1,7 +1,7 @@
 #----------------------------------------------------------#
 #
 #
-#                     Project name
+#               Reproducibility in Science
 #
 #                  Render presentation
 #
