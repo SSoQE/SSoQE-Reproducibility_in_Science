@@ -41,6 +41,910 @@ include_local_figure <- function(data_source) {
 
 Ondřej Mottl
 
+
+## Research cycle
+
+```{r}
+#| label: research cycle
+include_local_figure("ResearchCycle.jpg")
+```
+
+::: footer
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## Reproducibility crisis
+
+```{r}
+#| label: reprodicibility crisis
+include_local_figure("1a.png")
+```
+
+::: footer
+[Baker, Monya. "1,500 scientists lift the lid on reproducibility." Nature 533, no. 7604 (2016).](https://doi.org/10.1038/533452a)
+:::
+
+## Evolution
+
+```{r}
+#| label: evolution
+cul("openresearch.jpg")
+```
+
+::: footer
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
+
+:::{.r-fit-text}
+What is Open Science to You?
+:::
+
+`r countdown(minutes = 3)`
+
+# Open Science
+
+```{r}
+#| label: open-science
+include_local_figure("UNESCO-Open_science-pillars-en.png")
+```
+
+::: footer
+[UNESCO (2022). Understanding open science — Factsheet — SC-PBS-STIP/2022/OST/1.](https://doi.org/10.54677/UTCD9302)
+:::
+
+## A better view
+
+```{r}
+#| label: open-science-taxonomy
+include_local_figure("os_taxonomy.png")
+```
+
+::: footer
+[https://www.fosteropenscience.eu/](https://www.fosteropenscience.eu/)
+:::
+
+## The Journey
+
+```{r}
+#| label: open-science-journey
+include_local_figure("ReproducibleJourney.jpg")
+```
+
+::: footer
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+# [DATA]{.bold .r-fit-text} {.title}
+
+## FAIR Principles
+
+Good practices for the management and administration of scientific data
+
+:::: columns
+::: {.column width="50%"}
+
+```{r}
+#| label: FAIR
+include_local_figure("FAIRPrinciples.jpg")
+```
+
+:::
+
+::: {.column width="50%"}
+
+::: {.textcenter .bold .text-color-highlight-secondary}
+"*Access as open as possible, as closed as necessary*"
+:::
+
+::: incremental
+* [**F**]{.text-color-highlight-primary}indable 
+* [**A**]{.text-color-highlight-primary}ccesible 
+* [**I**]{.text-color-highlight-primary}nteroperable 
+* [**R**]{.text-color-highlight-primary}eusable
+:::
+
+:::
+::::
+
+::: footer
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## Open vs Close
+
+```{r}
+#| label: open-vs-close
+include_local_figure("open-vs-close-research-with-text.jpg")
+```
+
+::: footer
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## Sharing Data
+
+Do you generate data and/or software?
+
+:::: columns
+::: {.column width="50%" .fragment}
+
+```{r}
+#| label: DOI
+include_local_figure("DOI.jpg")
+```
+
+:::
+
+::: {.column width="50%" .incremental}
+
+* Get a permanent URL to the repository as a [**Digital Object Identifier**]{.text-color-highlight-primary} (DOI)
+* Deposit them in a "stable" repository (eg. [Zenodo](https://zenodo.org/), [Figshare](https://figshare.com/), etc)
+* Included an example of how to cite it in the [**README**]{.text-color-highlight-secondary} or documentation
+
+:::
+::::
+
+::: footer
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## Licensing
+
+[ZENODO]{.text-color-highlight-primary} allows you to choose a licence for your data.
+
+You can always share your private data and [**restricted access**]{.text-color-highlight-secondary} with the correct licence.
+
+There are websites e.g. [https://choosealicense.com/](https://choosealicense.com/) to help on choosing a licence.
+
+```{r}
+#| label: licensing
+knitr::include_graphics("https://howtofair.dk/media/vkynh5av/examples-of-data-licences.png")
+```
+
+::: footer
+[How to  FAIR](https://howtofair.dk/how-to-fair/data-licences/)
+:::
+
+## Data stewards
+
+```{r}
+#| label: DataStewards
+include_local_figure("DataStewards.jpg")
+```
+
+::: footer
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+# [CODE]{.bold .r-fit-text} {.title}
+
+## Reproducibility ?
+
+::::: {.columns}
+
+:::: {.column width="60%"}
+
+```{r}
+#| label: meme-work-on-my-machine
+knitr::include_graphics("https://media.makeameme.org/created/one-does-not-50b8331726.jpg")
+```
+
+::::
+
+:::: {.column width="40%"}
+
+<br>
+
+Uknown author
+
+::: {.blockquote .textcenter}
+
+I was able to reproduce my results on [my computer/machine]{.text-color-highlight-secondary}
+
+Can I consider my work [**reproducible**]{.text-color-highlight-tertiary}?
+
+:::
+::::
+:::::
+
+::: footer
+[makeameme.org](https://media.makeameme.org/created/one-does-not-50b8331726)
+:::
+
+## Reproducibility
+
+```{r}
+#| label: reproducibility
+include_local_figure("ReproducibleDefinitionGrid.jpg")
+```
+
+::: footer
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## Time to change
+
+```{r}
+#| label: culture-shift
+include_local_figure("CultureShift.jpg")
+```
+
+::: footer
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## It is a spectrum
+
+```{r}
+#| label: rep-spectrum
+knitr::include_graphics("https://raps-with-r.dev/images/repro_spectrum.png")
+```
+
+:::{.footer}
+[Roger D. Peng ,Reproducible Research in Computational Science.Science334,1226-1227(2011).DOI:10.1126/science.1213847](https://doi.org/10.1126/science.1213847)
+:::
+
+## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
+
+:::{.r-fit-text}
+How reproducible is your research?
+
+What can you do to improve it?
+:::
+
+`r countdown(minutes = 3)`
+
+## It is a spectrum
+
+```{r}
+#| label: rep-spectrum-details
+knitr::include_graphics("https://www.aalto.fi/sites/g/files/flghsv161/files/styles/o_914w_ah_n_nu/public/2022-02/Glerean_continuum_best_practices1800.png")
+```
+
+::: footer
+[Getting started with reproducibility in research!](https://www.aalto.fi/en/open-science-and-research/getting-started-with-reproducibility-in-research)
+:::
+
+# [PROJECTS]{.bold .r-fit-text} {.title}
+
+## Making a paper (compendium)
+
+:::: columns
+::: {.column width="60%"}
+
+```{r}
+#| label: compendium
+include_local_figure("ResearchCompendium.jpg")
+```
+
+:::
+
+::: {.column width="40%" .textcenter}
+
+<br>
+<br>
+
+**[Project]{.text-color-highlight-primary}**-oriented structure
+
+Each paper is a single project
+
+:::
+::::
+
+::: footer
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## Project communication plan
+
+```{r}
+#| label: project-communication-projects
+knitr::include_graphics("https://plan.io/images/blog/project-communication-plan.png?1722938254")
+```
+
+::: footer
+[Plan.io](https://plan.io/blog/)
+:::
+
+## Project structure
+
+```{r}
+#| label: file-management
+include_local_figure("file-management-manual-with-text.jpg")
+```
+
+::: footer
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## Project structure - basic {auto-animate="true"}
+
+```{r}
+#| eval: false
+#| echo: true
+# .
+# └─my_awesome_project/
+#   ├─ Data/
+#   ├─ Outputs/
+#   ├─ R/
+#   ├─ README.md
+#   ├─ LICENSE
+#   └─ [project name].Rproj
+```
+
+## Project structure - more details {auto-animate="true"}
+
+```{r}
+#| eval: false
+#| echo: true
+# .
+# └─my_awesome_project/
+#   ├─ Data/
+#   |   ├─ Input/
+#   |   ├─ Processed/
+#   |   └─ Temp/
+#   ├─ Outputs/
+#   |   ├─ Data/
+#   |   ├─ Figures/
+#   |   └─ Tables/
+#   ├─ R/
+#   |   ├─ ___Init_project___.R
+#   |   ├─ 00_Config_file.R
+#   |   ├─ 01_Data_processing/
+#   |   ├─ 02_Main_analyses/
+#   |   ├─ 03_Supplementary_analyses/
+#   |   ├─ Functions/
+#   |       └─ example_fc.R
+#   ├─ README.md
+#   ├─ LICENSE
+#   └─ [project name].Rproj
+```
+
+## Project structure - Analysis Example {auto-animate="true"}
+
+```{r}
+#| eval: false
+#| echo: true
+# .
+# └─my_awesome_project/
+#   ├─ Data/
+#   ├─ Outputs/
+#   ├─ R/
+#   |   ├─ ___Init_project___.R
+#   |   ├─ 00_Config_file.R
+#   |   ├─ 00_Master.R
+#   |   ├─ 01_Data_processing/
+#   |   |   ├─ 01_Prepare_pollen_data.R
+#   |   |   └─ 01_Download_terrain_data.R
+#   |   ├─ 02_Main_analyses/
+#   |   |   ├─ 01_Vegetation_history/
+#   |   |   |   ├─ 01_Estimate_dissimilarty.R
+#   |   |   |   └─ 02_Summarise_dissimilarity.R
+#   |   |   ├─ 02_Rate_of_change/
+#   |   |   |   ├─ 01_Roc_estimation.R
+#   |   |   |   ├─ 02_Roc_interpolation.R
+#   |   |   ├─ 03_Temporal_patters_of_groups/
+#   |   |   |   ├─ 01_Define_groups.R
+#   |   |   |   ├─ 02_Temporal_patterns_of_groups.R
+#   |   |   └─ 04_Visualisation/
+#   |   ├─ 03_Supplementary_analyses/
+#   |   └─ Functions/
+#   ├─ README.md
+#   ├─ LICENSE
+#   └─ [project name].Rproj
+```
+
+## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
+
+::: {.r-fit-text} 
+What are the cons and pros of this approach?
+:::
+
+`r countdown(minutes = 3)`
+
+## Project structure - RStudio Projects
+
+```{r}
+#| label: rstudio-project
+knitr::include_graphics("https://ecorepsci.github.io/reproducible-science/img/rstudio-project.jpg")
+```
+
+<br>
+[**R-studio**]{.text-color-highlight-primary} is using [Projects]{.text-color-highlight-secondary} already by default
+
+::: footer
+[Reproducible Data Science](https://ecorepsci.github.io/reproducible-science/index.html)
+:::
+
+## Project structure - Working Directory
+
+:::: columns
+::: {.column width="50%" }
+<br>
+<br>
+
+[@JennyBryan](https://twitter.com/JennyBryan):
+
+::: {.blockquote}
+If the first line of your R script is
+
+```{r}
+#| label: jenny-quote
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+setwd("C:\Users\jenny\path\that\only\I\have")
+```
+
+I will come into your office and **SET YOUR COMPUTER ON FIRE** 🔥.
+:::
+:::
+
+::: {.column width="48%" .fragment}
+```{r}
+#| label: here-here
+include_local_figure("here_pkg.png")
+```
+
+The [{here} package](https://here.r-lib.org/) is up for rescue! 
+:::
+::::
+
+::: footer
+Artwork by [@allison_horst](https://twitter.com/allison_horst)
+:::
+
+## Clean code
+
+:::: columns
+::: {.column width="50%" }
+```{r}
+#| label: ReadableCode
+include_local_figure("ReadableCode.jpg")
+```
+:::
+
+::: {.column width="48%" .fragment}
+
+```{r}
+#| label: wtf-per-minute
+knitr::include_graphics("https://www.gilesd-j.com/wp-content/uploads/2023/01/image-1.png")
+```
+
+:::
+::::
+
+::: footer
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+
+[Glen Lipka](https://commadot.com/)
+:::
+
+## Code style and etiquette 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Create a [Code Convention]{.text-color-highlight-primary} to keep the code: 
+
+::: {.incremental}
+* [**readable**]{.text-color-highlight-secondary}
+* [**understandable**]{.text-color-highlight-secondary}
+* [**maintainable**]{.text-color-highlight-secondary}
+:::
+
+::: {.fragment}
+Allow for [**collaboration**]{.text-color-highlight-tertiary} and [**reproducibility**]{.text-color-highlight-tertiary}
+:::
+
+::: {.fragment}
+* Example of [my personal code conventions](https://ondrejmottl.github.io/collaboration/code_convention.html)
+:::
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| label: code-convention-meme
+include_local_figure("meme-code-convention.jpg")
+```
+:::
+
+::::
+
+::: footer
+[Reddit - Naming things is hard](https://www.reddit.com/r/ProgrammerHumor/comments/dwmwvj/naming_things_is_hard/)
+:::
+
+## Code style and etiquette 
+
+:::: columns
+::: {.column width="38%"}
+
+[Code Convention]{.text-color-highlight-secondary}:
+
+::: {.incremental}
+* Script Structure
+* Naming things
+* Script annotation
+:::
+
+:::
+
+::: {.column width="60%"}
+:::
+::::
+
+
+## Code style and etiquette 
+
+:::: columns
+::: {.column width="38%"}
+
+[Code Convention]{.text-color-highlight-secondary}:
+
+* **[Script Structure]{.text-color-highlight-primary}**
+* Naming things
+* Script annotation
+
+:::
+
+::: {.column width="60%" .fragment .textcenter}
+
+[One script = one task]{.text-color-highlight-tertiary}
+
+```{r}
+#| label: Script Structure
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+#----------------------------------------------------------#
+#
+#
+#                     Project name 
+#
+#                      Script name
+#                      - continue
+#
+#                       Authors 
+#                        Year
+#
+#----------------------------------------------------------#
+
+# General description of the script
+
+#----------------------------------------------------------#
+# 1. Load data -----
+#----------------------------------------------------------#
+
+#----------------------------------------------------------#
+# 2. Data wrangling -----
+#----------------------------------------------------------#
+
+#--------------------------------------------------#
+# 2.1. Fit model -----
+#--------------------------------------------------#
+
+#----------------------------------------------------------#
+# 3. Save results -----
+#----------------------------------------------------------#
+
+```
+:::
+::::
+
+## Code style and etiquette 
+
+:::: columns
+::: {.column width="38%" }
+
+[Code Convention]{.text-color-highlight-secondary}:
+
+* *Script Structure*
+* **[Naming things]{.text-color-highlight-primary}**
+* Script annotation
+
+:::
+
+::: {.column width="60%"}
+
+Phil Karlton
+
+::: {.blockquote}
+There are only two hard things in Computer Science: cache invalidation and **naming things**.
+:::
+
+:::
+::::
+
+## Code style and etiquette 
+
+:::: columns
+::: {.column width="38%" }
+
+[Code Convention]{.text-color-highlight-secondary}:
+
+* *Script Structure*
+* **[Naming things]{.text-color-highlight-primary}**
+* Script annotation
+
+:::
+
+::: {.column width="60%" .textcenter} 
+```{r}
+#| label: case
+include_local_figure("case.png")
+```
+
+[Do not use "."(dot) in the object names!]{.text-color-highlight-tertiary}
+
+:::
+::::
+
+::: footer
+Artwork by [@allison_horst](https://twitter.com/allison_horst)
+:::
+
+## Code style and etiquette 
+
+:::: columns
+::: {.column width="38%" }
+
+[Code Convention]{.text-color-highlight-secondary}:
+
+* *Script Structure*
+* Naming things
+* **[Script annotation]{.text-color-highlight-primary}**
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| label: code-comments
+knitr::include_graphics("https://i.imgur.com/H4uaq47.jpeg")
+```
+
+:::
+::::
+
+::: footer
+[r/ProgrammerHumor](https://www.reddit.com/r/ProgrammerHumor/comments/aatfvz/functional_programming_in_a_nutshell/)
+:::
+
+## Practical Exercise {.exercise}
+
+`r countdown(minutes = 3)`
+
+::::: {.panel-tabset}
+
+### Ex1
+
+:::: columns
+::: {.column width="54%"}
+
+```{r}
+#| label: style ex1
+#| eval: false
+#| echo: true
+#| code-line-numdbers: true
+x = 23; y = 12
+
+84->childHeight 
+
+number_of_days_since_last_accident_floor_4_lab_23 = 0
+```
+:::
+
+::: {.column width="45%" .fragment}
+```{r}
+#| label: style ex1 - solution
+#| eval: false
+#| echo: true
+#| code-line-numbers: true
+x <- 23
+y <- 12
+
+child_height_cm <- 84
+
+days_since_last_accident <- 0
+```
+:::
+::::
+
+### Ex2 
+
+:::: columns
+::: {.column width="38%"}
+
+```{r}
+#| label: style ex2
+#| eval: false
+#| echo: true
+#| code-line-numdbers: true
+Day.One = 29.07.2024
+
+f*12+i->h
+
+c.m(List-Test)$`col A`
+```
+:::
+
+::: {.column width="60%" .fragment}
+```{r}
+#| label: style ex2 - solution
+#| eval: false
+#| echo: true
+#| code-line-numbers: true
+day_one <- "2024-07-29"
+
+height <-
+  (feet * 12) + inches
+
+list_test %>%
+  calculate_mean() %>%
+  purrr::chuck("column_a")
+```
+:::
+::::
+
+### Ex3
+
+:::: columns
+::: {.column width="30%"}
+
+```{r}
+#| label: style ex3
+#| eval: false
+#| echo: true
+#| code-line-numbers: true
+function(a,
+b,c,d=100) 
+{
+if(a<c) a<-(a/b)*d
+a 
+} -> std.con  
+```
+:::
+
+::: {.column width="69%" .fragment}
+```{r}
+#| label: style ex3 - solution
+#| eval: false
+#| echo: true
+#| code-line-numbers: true
+get_standart_concentration <- function(concentration = NULL,
+                                       order_magnitude = NULL,
+                                       expected_concentration = NULL,
+                                       number_of_iterations = 100) {
+  if (
+    isTRUE(concentration < expected_concentration)
+  ) {
+    res <-
+      (concentration / order_magnitude) * number_of_iterations
+  }
+  return(res)
+}
+```
+:::
+::::
+
+:::::
+
+## 
+
+:::{.textcenter .r-fit-text}
+‼️ BE [CONSISTENT]{.text-color-highlight-primary .bold} ‼️
+:::
+
+#### Code style Resources 
+* [The {tidyverse} style guide](https://style.tidyverse.org/index.html)
+* [Google’s R Style Guide](https://google.github.io/styleguide/Rguide.html)
+* [Dealing with the Second Hardest Thing in Computer Science](https://indrajeetpatil.github.io/second-hardest-cs-thing/)
+  * Presentation by [Indrajeet Patil](https://sites.google.com/site/indrajeetspatilmorality/)
+* [Naming Things in Code](https://youtu.be/-J3wNP6u5YU)
+  * YT video by [CodeAesthetic](https://www.youtube.com/@CodeAesthetic) 
+
+
+## Self-containedness
+
+:::: columns
+::: {.column width="50%" }
+
+<br>
+<br>
+
+Will [my code]{.text-color-highlight-primary} run on [your]{.text-color-highlight-secondary} machine?
+
+Will [my code]{.text-color-highlight-primary} run [in 10 years]{.text-color-highlight-tertiary}?
+
+:::
+
+::: {.column width="49%" .fragment .textcenter}
+```{r}
+#| label: renv
+include_local_figure("renv.png")
+```
+
+The [{revn} package](https://rstudio.github.io/renv/index.html) will make sure it will! 
+
+:::
+::::
+
+::: footer
+Artwork by [@allison_horst](https://twitter.com/allison_horst)
+:::
+
+## Self-containedness - advanced
+
+What if we share the [whole Operating System]{.text-color-highlight-primary} as well?
+
+:::: columns
+::: {.column width="39%" }
+
+```{r}
+#| label: docker_logo
+include_local_figure("docker_logo.png")
+```
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| label: docker_scheme
+knitr::include_graphics("https://www.statworx.com/wp-content/uploads/2019/02/Blog_R-script-in-docker_docker-run-1024x629.png")
+```
+
+:::
+::::
+
+::: footer
+Icon by [icon-icons.com](https://icon-icons.com/icon/docker-official-logo/169250); artwork by [@statworx](https://www.statworx.com/en/)
+:::
+
+## All in code
+
+```{r}
+#| label: code-all-meme
+knitr::include_graphics("https://guangchuangyu.github.io/blog_images/R/meme/Figs/unnamed-chunk-2-1.png")
+```
+
+::: footer
+[create meme in R](https://guangchuangyu.github.io/2017/10/create-meme-in-r/)
+:::
+
+## All in code
+
+:::: columns
+::: {.column width="50%" }
+
+```{r}
+#| label: tidyverse
+knitr::include_graphics("https://science.uct.ac.za/sites/default/files/content_migration/science_uct_ac_za/708/images/tidy_workflow.png")
+```
+
+:::
+
+::: {.column width="50%"}
+
+[Do not edit raw data!]{.bold .text-color-highlight-primary}
+
+* `Data/Input/Raw/`
+* Data wrangling in code
+* Save proceesed data (`Data/Processed/`)
+* [{tidyverse}](https://www.tidyverse.org/) for data manipulation
+
+:::
+::::
+
+::: footer
+[Centre for Statistics in Ecology, the Environment and Conservation (SEEC)](https://science.uct.ac.za/seec)
+:::
+
 # [Outro]{.bold .r-fit-text} {.title}
 
 ## [This presentation]{.bold .r-fit-text} {.title}
