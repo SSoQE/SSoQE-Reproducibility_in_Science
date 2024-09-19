@@ -41,6 +41,8 @@ include_local_figure <- function(data_source) {
 
 # [Reproducibility in Science]{.bold .r-fit-text} {.title}
 
+[with a focus on Version Control]{.bold}
+
 <br>
 
 Ondřej Mottl
@@ -122,109 +124,7 @@ include_local_figure("ReproducibleJourney.jpg")
 [This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
 :::
 
-# [DATA]{.bold .r-fit-text} {.title}
-
-## FAIR Principles
-
-Good practices for the management and administration of scientific data
-
-:::: columns
-::: {.column width="50%"}
-
-```{r}
-#| label: FAIR
-include_local_figure("FAIRPrinciples.jpg")
-```
-
-:::
-
-::: {.column width="50%"}
-
-::: {.textcenter .bold .text-color-highlight-secondary}
-"*Access as open as possible, as closed as necessary*"
-:::
-
-::: incremental
-* [**F**]{.text-color-highlight-primary}indable 
-* [**A**]{.text-color-highlight-primary}ccesible 
-* [**I**]{.text-color-highlight-primary}nteroperable 
-* [**R**]{.text-color-highlight-primary}eusable
-:::
-
-:::
-::::
-
-::: footer
-[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
-:::
-
-## Open vs Close
-
-```{r}
-#| label: open-vs-close
-include_local_figure("open-vs-close-research-with-text.jpg")
-```
-
-::: footer
-[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
-:::
-
-## Sharing Data
-
-Do you generate data and/or software?
-
-:::: columns
-::: {.column width="50%" .fragment}
-
-```{r}
-#| label: DOI
-include_local_figure("DOI.jpg")
-```
-
-:::
-
-::: {.column width="50%" .incremental}
-
-* Get a permanent URL to the repository as a [**Digital Object Identifier**]{.text-color-highlight-primary} (DOI)
-* Deposit them in a "stable" repository (eg. [Zenodo](https://zenodo.org/), [Figshare](https://figshare.com/), etc)
-* Included an example of how to cite it in the [**README**]{.text-color-highlight-secondary} or documentation
-
-:::
-::::
-
-::: footer
-[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
-:::
-
-## Licensing
-
-[ZENODO]{.text-color-highlight-primary} allows you to choose a licence for your data.
-
-You can always share your private data and [**restricted access**]{.text-color-highlight-secondary} with the correct licence.
-
-There are websites e.g. [https://choosealicense.com/](https://choosealicense.com/) to help on choosing a licence.
-
-```{r}
-#| label: licensing
-knitr::include_graphics("https://howtofair.dk/media/vkynh5av/examples-of-data-licences.png")
-```
-
-::: footer
-[How to  FAIR](https://howtofair.dk/how-to-fair/data-licences/)
-:::
-
-## Data stewards
-
-```{r}
-#| label: DataStewards
-include_local_figure("DataStewards.jpg")
-```
-
-::: footer
-[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
-:::
-
-# [CODE]{.bold .r-fit-text} {.title}
+# [Reproducibility]{.bold .r-fit-text} {.title}
 
 ## Reproducibility ?
 
@@ -442,14 +342,6 @@ include_local_figure("file-management-manual-with-text.jpg")
 #   └─ [project name].Rproj
 ```
 
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
-
-::: {.r-fit-text} 
-What are the cons and pros of this approach?
-:::
-
-`r countdown(minutes = 3)`
-
 ## Project structure - RStudio Projects
 
 ```{r}
@@ -501,359 +393,6 @@ The [{here} package](https://here.r-lib.org/) is up for rescue!
 ::: footer
 Artwork by [@allison_horst](https://twitter.com/allison_horst)
 :::
-
-## Clean code
-
-:::: columns
-::: {.column width="50%" }
-```{r}
-#| label: ReadableCode
-include_local_figure("ReadableCode.jpg")
-```
-:::
-
-::: {.column width="48%" .fragment}
-
-```{r}
-#| label: wtf-per-minute
-knitr::include_graphics("https://www.gilesd-j.com/wp-content/uploads/2023/01/image-1.png")
-```
-
-:::
-::::
-
-::: footer
-[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
-
-[Glen Lipka](https://commadot.com/)
-:::
-
-## Code style and etiquette 
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-Create a [Code Convention]{.text-color-highlight-primary} to keep the code: 
-
-::: {.incremental}
-* [**readable**]{.text-color-highlight-secondary}
-* [**understandable**]{.text-color-highlight-secondary}
-* [**maintainable**]{.text-color-highlight-secondary}
-:::
-
-::: {.fragment}
-Allow for [**collaboration**]{.text-color-highlight-tertiary} and [**reproducibility**]{.text-color-highlight-tertiary}
-:::
-
-::: {.fragment}
-* Example of [my personal code conventions](https://ondrejmottl.github.io/collaboration/code_convention.html)
-:::
-:::
-
-::: {.column width="50%"}
-
-```{r}
-#| label: code-convention-meme
-include_local_figure("meme-code-convention.jpg")
-```
-:::
-
-::::
-
-::: footer
-[Reddit - Naming things is hard](https://www.reddit.com/r/ProgrammerHumor/comments/dwmwvj/naming_things_is_hard/)
-:::
-
-## Code style and etiquette 
-
-:::: columns
-::: {.column width="38%"}
-
-[Code Convention]{.text-color-highlight-secondary}:
-
-::: {.incremental}
-* Script Structure
-* Naming things
-* Script annotation
-:::
-
-:::
-
-::: {.column width="60%"}
-:::
-::::
-
-
-## Code style and etiquette 
-
-:::: columns
-::: {.column width="38%"}
-
-[Code Convention]{.text-color-highlight-secondary}:
-
-* **[Script Structure]{.text-color-highlight-primary}**
-* Naming things
-* Script annotation
-
-:::
-
-::: {.column width="60%" .fragment .textcenter}
-
-[One script = one task]{.text-color-highlight-tertiary}
-
-```{r}
-#| label: Script Structure
-#| eval: false
-#| echo: true
-#| code-line-numbers: false
-#----------------------------------------------------------#
-#
-#
-#                     Project name 
-#
-#                      Script name
-#                      - continue
-#
-#                       Authors 
-#                        Year
-#
-#----------------------------------------------------------#
-
-# General description of the script
-
-#----------------------------------------------------------#
-# 1. Load data -----
-#----------------------------------------------------------#
-
-#----------------------------------------------------------#
-# 2. Data wrangling -----
-#----------------------------------------------------------#
-
-#--------------------------------------------------#
-# 2.1. Fit model -----
-#--------------------------------------------------#
-
-#----------------------------------------------------------#
-# 3. Save results -----
-#----------------------------------------------------------#
-
-```
-:::
-::::
-
-## Code style and etiquette 
-
-:::: columns
-::: {.column width="38%" }
-
-[Code Convention]{.text-color-highlight-secondary}:
-
-* *Script Structure*
-* **[Naming things]{.text-color-highlight-primary}**
-* Script annotation
-
-:::
-
-::: {.column width="60%"}
-
-Phil Karlton
-
-::: {.blockquote}
-There are only two hard things in Computer Science: cache invalidation and **naming things**.
-:::
-
-:::
-::::
-
-## Code style and etiquette 
-
-:::: columns
-::: {.column width="38%" }
-
-[Code Convention]{.text-color-highlight-secondary}:
-
-* *Script Structure*
-* **[Naming things]{.text-color-highlight-primary}**
-* Script annotation
-
-:::
-
-::: {.column width="60%" .textcenter} 
-```{r}
-#| label: case
-include_local_figure("case.png")
-```
-
-[Do not use "."(dot) in the object names!]{.text-color-highlight-tertiary}
-
-:::
-::::
-
-::: footer
-Artwork by [@allison_horst](https://twitter.com/allison_horst)
-:::
-
-## Code style and etiquette 
-
-:::: columns
-::: {.column width="38%" }
-
-[Code Convention]{.text-color-highlight-secondary}:
-
-* *Script Structure*
-* Naming things
-* **[Script annotation]{.text-color-highlight-primary}**
-
-:::
-
-::: {.column width="60%"}
-
-```{r}
-#| label: code-comments
-knitr::include_graphics("https://i.imgur.com/H4uaq47.jpeg")
-```
-
-:::
-::::
-
-::: footer
-[r/ProgrammerHumor](https://www.reddit.com/r/ProgrammerHumor/comments/aatfvz/functional_programming_in_a_nutshell/)
-:::
-
-## Practical Exercise {.exercise}
-
-`r countdown(minutes = 3)`
-
-::::: {.panel-tabset}
-
-### Ex1
-
-:::: columns
-::: {.column width="54%"}
-
-```{r}
-#| label: style ex1
-#| eval: false
-#| echo: true
-#| code-line-numdbers: true
-x = 23; y = 12
-
-84->childHeight 
-
-number_of_days_since_last_accident_floor_4_lab_23 = 0
-```
-:::
-
-::: {.column width="45%" .fragment}
-```{r}
-#| label: style ex1 - solution
-#| eval: false
-#| echo: true
-#| code-line-numbers: true
-x <- 23
-y <- 12
-
-child_height_cm <- 84
-
-days_since_last_accident <- 0
-```
-:::
-::::
-
-### Ex2 
-
-:::: columns
-::: {.column width="38%"}
-
-```{r}
-#| label: style ex2
-#| eval: false
-#| echo: true
-#| code-line-numdbers: true
-Day.One = 29.07.2024
-
-f*12+i->h
-
-c.m(List-Test)$`col A`
-```
-:::
-
-::: {.column width="60%" .fragment}
-```{r}
-#| label: style ex2 - solution
-#| eval: false
-#| echo: true
-#| code-line-numbers: true
-day_one <- "2024-07-29"
-
-height <-
-  (feet * 12) + inches
-
-list_test %>%
-  calculate_mean() %>%
-  purrr::chuck("column_a")
-```
-:::
-::::
-
-### Ex3
-
-:::: columns
-::: {.column width="30%"}
-
-```{r}
-#| label: style ex3
-#| eval: false
-#| echo: true
-#| code-line-numbers: true
-function(a,
-b,c,d=100) 
-{
-if(a<c) a<-(a/b)*d
-a 
-} -> std.con  
-```
-:::
-
-::: {.column width="69%" .fragment}
-```{r}
-#| label: style ex3 - solution
-#| eval: false
-#| echo: true
-#| code-line-numbers: true
-get_standart_concentration <- function(concentration = NULL,
-                                       order_magnitude = NULL,
-                                       expected_concentration = NULL,
-                                       number_of_iterations = 100) {
-  if (
-    isTRUE(concentration < expected_concentration)
-  ) {
-    res <-
-      (concentration / order_magnitude) * number_of_iterations
-  }
-  return(res)
-}
-```
-:::
-::::
-
-:::::
-
-## 
-
-:::{.textcenter .r-fit-text}
-‼️ BE [CONSISTENT]{.text-color-highlight-primary .bold} ‼️
-:::
-
-#### Code style Resources 
-* [The {tidyverse} style guide](https://style.tidyverse.org/index.html)
-* [Google’s R Style Guide](https://google.github.io/styleguide/Rguide.html)
-* [Dealing with the Second Hardest Thing in Computer Science](https://indrajeetpatil.github.io/second-hardest-cs-thing/)
-  * Presentation by [Indrajeet Patil](https://sites.google.com/site/indrajeetspatilmorality/)
-* [Naming Things in Code](https://youtu.be/-J3wNP6u5YU)
-  * YT video by [CodeAesthetic](https://www.youtube.com/@CodeAesthetic) 
-
 
 ## Self-containedness
 
@@ -2690,6 +2229,21 @@ knitr::include_graphics("https://www.garrickadenbuie.com/blog/pull-request-flow-
 
 ::: footer
 [Pull Request Flow with usethis](https://www.garrickadenbuie.com/blog/pull-request-flow-usethis)
+:::
+
+## This is just a teaser
+
+GitHub has a lot of [features]{.text-color-highlight-primary} and [tools]{.text-color-highlight-secondary} to make your life easier:
+
+* Project management
+* Task management
+* Collaboration
+* Dissimination
+* Automation
+* ...
+
+::: {.fragment}
+After a coffee break☕
 :::
 
 # [Outro]{.bold .r-fit-text} {.title}
