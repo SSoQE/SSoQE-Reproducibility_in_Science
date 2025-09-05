@@ -7,7 +7,7 @@
 #
 #
 #                O. Mottl, Author name
-#                         2024
+#                         2025
 #
 #----------------------------------------------------------#
 
@@ -20,7 +20,7 @@
 library(here)
 
 source(
-  here::here("R/00_Confiq_file.R")
+  here::here("R/00_Config_file.R")
 )
 
 # Render -----
@@ -33,6 +33,12 @@ quarto::quarto_render(
 fs::file_copy(
   path = here::here("Presentation/index.html"),
   new_path = here::here("docs/index.html"),
+  overwrite = TRUE
+)
+
+fs::file_copy(
+  path = here::here("Presentation/index.html"),
+  new_path = here::here("Presentation/presentation.html"),
   overwrite = TRUE
 )
 

@@ -6,8 +6,8 @@
 #                     Config file
 #
 #
-#                O. Mottl, Author name
-#                         2024
+#                      O. Mottl
+#                         2025
 #
 #----------------------------------------------------------#
 # Configuration script with the variables that should be consistent throughout
@@ -52,7 +52,6 @@ package_list <-
   c(
     "fs",
     "here",
-    "httpgd",
     "janitor",
     "jsonlite",
     "knitr",
@@ -118,21 +117,10 @@ if (
 # 6. Graphical options -----
 #----------------------------------------------------------#
 
-## examples
-# set ggplot output
-ggplot2::theme_set(
-  ggplot2::theme_classic()
+source(
+  here::here("R/generate_theme.R")
 )
 
-# define general
-text_size <- 10
-line_size <- 0.1
-
-# define output sizes
-image_width <- 16
-image_height <- 12
-image_units <- "cm"
-
-# define pallets
-
-# define common color
+source(
+  here::here("R/set_r_theme.R")
+)
