@@ -1,14 +1,3 @@
----
-format: 
-  revealjs:
-    slide-number: true
-    theme: [default, custom_theme.scss]
-    embed-resources: true
-    preview-links: auto
-    output-file: "index"
-    output-ext: "html"
----
-
 ```{r}
 #| label: setup
 #| include: false
@@ -20,41 +9,94 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 
-if(!require("countdown")) install.packages("countdown")
-
 library(countdown)
 
-if (!require("here")) install.packages("here")
+# Load required packages for QR code generation
+if (!require("qrcode")) install.packages("qrcode")
+library(qrcode)
 
+if (!require("here")) install.packages("here")
 library(here)
+here::i_am("Presentation/presentation.qmd")
 
 include_local_figure <- function(data_source) {
   knitr::include_graphics(
     path = here::here(
-      "docs/Materials",
+      "Presentation/Materials",
       data_source
     ),
     error = TRUE
   )
 }
+
+source(
+  here::here("R/00_Config_file.R")
+)
+
 ```
 
-# [Reproducibility in Science]{.bold .r-fit-text} {.title}
-
-[with a focus on Version Control]{.bold}
+# {.title}
 
 <br>
 
-Ondřej Mottl
+:::: {.columns}
 
-[Science School of Quantitative Ecology 2024](bit.ly/SSoQE)
+::: {.column width="80%"}
+:::
+
+::: {.column width="20%"}
+
+```{r}
+#| label: ssoqe-logo-title
+include_local_figure("Logos/SSOQE_logo3.png")
+```
+
+:::
+
+::::
+
+:::: {.r-hstack}
+::: {data-id="box1" style="background: `r ssoqe_cols['black']`; width: 135px; height: 15px; margin: 0px;"}
+:::
+
+::: {data-id="box2" style="background: `r ssoqe_cols['cambridge_blue']`; width: 405px; height: 15px; margin: 0px;"}
+:::
+
+::: {data-id="box3" style="background: `r ssoqe_cols['persian_green']`; width: 225px; height: 15px; margin: 0px;"}
+:::
+
+::: {data-id="box4" style="background: `r ssoqe_cols['satin_sheen_gold']`; width: 135px; height: 15px; margin: 0px;"}
+:::
+::::
+
+::: {.text-color-white .text-font-heading .text-size-heading2 .text-bold}
+Reproducibility 
+
+& Data Science
+:::
+
+:::: {.columns}
+
+::: {.column width="20%"}
+
+:::
+
+::: {.column width="80%" .text-right .text-size-body}
+[👤](https://ondrejmottl.github.io/)Ondřej Mottl
+
+[Science School of Quantitative Ecology 2025]{.text-color-black}
+
+[bit.ly/SSoQE](https://bit.ly/SSoQE){.text-color-black}
+:::
+
+::::
 
 
 ## Research cycle
 
 ```{r}
 #| label: research cycle
-include_local_figure("ResearchCycle.jpg")
+include_local_figure("Illustrations/ResearchCycle.jpg")
 ```
 
 ::: footer
@@ -65,7 +107,7 @@ include_local_figure("ResearchCycle.jpg")
 
 ```{r}
 #| label: reprodicibility crisis
-include_local_figure("1a.png")
+include_local_figure("Screenshots/1a.png")
 ```
 
 ::: footer
@@ -76,14 +118,14 @@ include_local_figure("1a.png")
 
 ```{r}
 #| label: evolution
-include_local_figure("openresearch.jpg")
+include_local_figure("Illustrations/openresearch.jpg")
 ```
 
 ::: footer
 [This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
 :::
 
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
+## [Practical Exercise]{.r-fit-text} {.exercise .text-center}
 
 :::{.r-fit-text}
 What is Open Science to You?
@@ -95,7 +137,7 @@ What is Open Science to You?
 
 ```{r}
 #| label: open-science
-include_local_figure("UNESCO-Open_science-pillars-en.png")
+include_local_figure("Illustrations/UNESCO-Open_science-pillars-en.png")
 ```
 
 ::: footer
@@ -106,7 +148,7 @@ include_local_figure("UNESCO-Open_science-pillars-en.png")
 
 ```{r}
 #| label: open-science-taxonomy
-include_local_figure("os_taxonomy.png")
+include_local_figure("Illustrations/os_taxonomy.png")
 ```
 
 ::: footer
@@ -117,7 +159,7 @@ include_local_figure("os_taxonomy.png")
 
 ```{r}
 #| label: open-science-journey
-include_local_figure("ReproducibleJourney.jpg")
+include_local_figure("Illustrations/ReproducibleJourney.jpg")
 ```
 
 ::: footer
@@ -145,11 +187,11 @@ knitr::include_graphics("https://media.makeameme.org/created/one-does-not-50b833
 
 Uknown author
 
-::: {.blockquote .textcenter}
+::: {.blockquote .text-center}
 
-I was able to reproduce my results on [my computer/machine]{.text-color-highlight-secondary}
+I was able to reproduce my results on [my computer/machine]{.text-highlight-persianGreen}
 
-Can I consider my work [**reproducible**]{.text-color-highlight-tertiary}?
+Can I consider my work [**reproducible**]{.text-highlight-satinSheenGold}?
 
 :::
 ::::
@@ -163,7 +205,7 @@ Can I consider my work [**reproducible**]{.text-color-highlight-tertiary}?
 
 ```{r}
 #| label: reproducibility
-include_local_figure("ReproducibleDefinitionGrid.jpg")
+include_local_figure("Illustrations/ReproducibleDefinitionGrid.jpg")
 ```
 
 ::: footer
@@ -174,7 +216,7 @@ include_local_figure("ReproducibleDefinitionGrid.jpg")
 
 ```{r}
 #| label: culture-shift
-include_local_figure("CultureShift.jpg")
+include_local_figure("Illustrations/CultureShift.jpg")
 ```
 
 ::: footer
@@ -192,7 +234,7 @@ knitr::include_graphics("https://raps-with-r.dev/images/repro_spectrum.png")
 [Roger D. Peng ,Reproducible Research in Computational Science.Science334,1226-1227(2011).DOI:10.1126/science.1213847](https://doi.org/10.1126/science.1213847)
 :::
 
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
+## [Practical Exercise]{.r-fit-text} {.exercise .text-center}
 
 :::{.r-fit-text}
 How reproducible is your research?
@@ -200,7 +242,7 @@ How reproducible is your research?
 What can you do to improve it?
 :::
 
-`r countdown(minutes = 3)`
+`r countdown(minutes = 5)`
 
 ## It is a spectrum
 
@@ -222,17 +264,17 @@ knitr::include_graphics("https://www.aalto.fi/sites/g/files/flghsv161/files/styl
 
 ```{r}
 #| label: compendium
-include_local_figure("ResearchCompendium.jpg")
+include_local_figure("Illustrations/ResearchCompendium.jpg")
 ```
 
 :::
 
-::: {.column width="40%" .textcenter}
+::: {.column width="40%" .text-center}
 
 <br>
 <br>
 
-**[Project]{.text-color-highlight-primary}**-oriented structure
+**[Project]{.text-highlight-persianGreen}**-oriented structure
 
 Each paper is a single project
 
@@ -258,14 +300,14 @@ knitr::include_graphics("https://plan.io/images/blog/project-communication-plan.
 
 ```{r}
 #| label: file-management
-include_local_figure("file-management-manual-with-text.jpg")
+include_local_figure("Illustrations/file-management-manual-with-text.jpg")
 ```
 
 ::: footer
 [This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
 :::
 
-## Project structure - basic {auto-animate="true"}
+## Project structure {auto-animate="true"}
 
 ```{r}
 #| eval: false
@@ -280,7 +322,7 @@ include_local_figure("file-management-manual-with-text.jpg")
 #   └─ [project name].Rproj
 ```
 
-## Project structure - more details {auto-animate="true"}
+## Project structure {auto-animate="true"}
 
 ```{r}
 #| eval: false
@@ -308,7 +350,7 @@ include_local_figure("file-management-manual-with-text.jpg")
 #   └─ [project name].Rproj
 ```
 
-## Project structure - Analysis Example {auto-animate="true"}
+## Project structure {auto-animate="true"}
 
 ```{r}
 #| eval: false
@@ -342,7 +384,16 @@ include_local_figure("file-management-manual-with-text.jpg")
 #   └─ [project name].Rproj
 ```
 
-## Project structure - RStudio Projects
+## [Practical Exercise]{.r-fit-text} {.exercise .text-center}
+
+::: {.r-fit-text}
+* What is your current project structure?
+* What benefits do you think it has?
+:::
+
+`r countdown(minutes = 3)`
+
+## RStudio Projects
 
 ```{r}
 #| label: rstudio-project
@@ -350,13 +401,15 @@ knitr::include_graphics("https://ecorepsci.github.io/reproducible-science/img/rs
 ```
 
 <br>
-[**R-studio**]{.text-color-highlight-primary} is using [Projects]{.text-color-highlight-secondary} already by default
+[**R-studio**]{.text-highlight-persianGreen} is using [Projects]{.text-highlight-cambridgeBlue} already by default
 
 ::: footer
 [Reproducible Data Science](https://ecorepsci.github.io/reproducible-science/index.html)
 :::
 
-## Project structure - Working Directory
+# [Self-containedness]{.bold .r-fit-text}  {.title}
+
+## Working Directory
 
 :::: columns
 ::: {.column width="50%" }
@@ -383,7 +436,7 @@ I will come into your office and **SET YOUR COMPUTER ON FIRE** 🔥.
 ::: {.column width="48%" .fragment}
 ```{r}
 #| label: here-here
-include_local_figure("here_pkg.png")
+include_local_figure("Packages/here_pkg.png")
 ```
 
 The [{here} package](https://here.r-lib.org/) is up for rescue! 
@@ -396,25 +449,42 @@ Artwork by [@allison_horst](https://twitter.com/allison_horst)
 
 ## Self-containedness
 
+R needs to have the [environment]{.text-highlight-persianGreen} set up correctly to run the code!
+
+This includes the [packages]{.text-highlight-cambridgeBlue} used in the code.
+
+```{r}
+#| label: pkg-error
+knitr::include_graphics("https://ubco-biology.github.io/BIOL202/more/no-function1.png")
+```
+
+::: footer
+[Tutorials for BIOL202](https://ubco-biology.github.io/BIOL202/could-not-find-function.html)
+:::
+
+## Self-containedness
+
+<br>
+
 :::: columns
 ::: {.column width="50%" }
 
 <br>
 <br>
 
-Will [my code]{.text-color-highlight-primary} run on [your]{.text-color-highlight-secondary} machine?
+Will [my code]{.text-highlight-midnightGreen} run on [your]{.text-highlight-persianGreen} machine?
 
-Will [my code]{.text-color-highlight-primary} run [in 10 years]{.text-color-highlight-tertiary}?
+Will [my code]{.text-highlight-midnightGreen} run [in 10 years]{.text-highlight-satinSheenGold}?
 
 :::
 
-::: {.column width="49%" .fragment .textcenter}
+::: {.column width="49%" .text-center}
 ```{r}
 #| label: renv
-include_local_figure("renv.png")
+include_local_figure("Packages/renv.png")
 ```
 
-The [{revn} package](https://rstudio.github.io/renv/index.html) will make sure it will! 
+The [{renv} package](https://rstudio.github.io/renv/index.html) will make sure it will! 
 
 :::
 ::::
@@ -423,16 +493,28 @@ The [{revn} package](https://rstudio.github.io/renv/index.html) will make sure i
 Artwork by [@allison_horst](https://twitter.com/allison_horst)
 :::
 
-## Self-containedness - advanced
+## [Practical Exercise]{.r-fit-text} {.exercise .text-center}
 
-What if we share the [whole Operating System]{.text-color-highlight-primary} as well?
+::: {.r-fit-text}
+* Install the [{renv} package](https://rstudio.github.io/renv/index.html)
+* Make a new project and initialize {renv} with `renv::init()`
+* Create a snapshot with `renv::snapshot()`
+:::
+
+`r countdown(minutes = 15)`
+
+## Self-containedness 
+
+More advanced!
+
+What if we share the [whole Operating System]{.text-highlight-satinSheenGold} as well?
 
 :::: columns
 ::: {.column width="39%" }
 
 ```{r}
 #| label: docker_logo
-include_local_figure("docker_logo.png")
+include_local_figure("Logos/docker_logo.png")
 ```
 
 :::
@@ -441,7 +523,7 @@ include_local_figure("docker_logo.png")
 
 ```{r}
 #| label: docker_scheme
-knitr::include_graphics("https://www.statworx.com/wp-content/uploads/2019/02/Blog_R-script-in-docker_docker-run-1024x629.png")
+knitr::include_graphics("https://cdn.prod.website-files.com/6708f2aa89478bd1de283d76/6752b90317bb6c74fa862e07_Blog_R-script-in-docker_docker-run-1024x629.png")
 ```
 
 :::
@@ -451,7 +533,128 @@ knitr::include_graphics("https://www.statworx.com/wp-content/uploads/2019/02/Blo
 Icon by [icon-icons.com](https://icon-icons.com/icon/docker-official-logo/169250); artwork by [@statworx](https://www.statworx.com/en/)
 :::
 
-## All in code
+# [Data Science]{.bold .r-fit-text} {.title}
+
+## Why R for Data Science?
+
+:::: columns
+
+::: {.column width="25%"}
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| label: r4ds-cycle
+knitr::include_graphics("https://r4ds.hadley.nz/diagrams/data-science/base.png")
+```
+
+:::
+
+::: {.column width="25%"}
+:::
+::::
+
+[**R**]{.text-highlight-persianGreen} is specifically designed for data science:
+
+:::: columns
+
+::: {.column width="50%" .incremental}
+
+* [**Import**]{.text-highlight-midnightGreen} data from various sources
+* [**Tidy**]{.text-highlight-midnightGreen} data into consistent structure
+* [**Transform**]{.text-highlight-midnightGreen} data for analysis
+:::
+
+::: {.column width="50%" .incremental}
+* [**Visualize**]{.text-highlight-midnightGreen} patterns and relationships
+* [**Model**]{.text-highlight-midnightGreen} to understand and predict
+* [**Communicate**]{.text-highlight-midnightGreen} results effectively
+:::
+::::
+
+::: {.fragment}
+All wrapped in [**Programming**]{.text-highlight-satinSheenGold} for reproducibility!
+:::
+
+::: footer
+[R for Data Science](https://r4ds.hadley.nz/) by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund
+:::
+
+## R for Data Science
+
+:::: columns
+::: {.column width="50%"}
+
+```{r}
+#| label: QR r4ds
+qr_r4ds <-
+  qrcode::qr_code(
+    "https://r4ds.hadley.nz/",
+    ecl = "H"
+  )
+
+qrcode::generate_svg(
+  qrcode = qr_r4ds,
+  filename = here::here("Presentation/Materials/QR/qr_r4ds.svg"),
+  foreground = ssoqe_cols['black'],
+  background = ssoqe_cols['white']
+)
+include_local_figure("QR/qr_r4ds.svg")
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| label: r4ds-book
+knitr::include_graphics("https://r4ds.hadley.nz/cover.jpg")
+```
+
+:::
+::::
+
+::: footer
+[R for Data Science](https://r4ds.hadley.nz/) - Free online at r4ds.hadley.nz
+:::
+
+## [Practical Exercise]{.r-fit-text} {.exercise .text-center}
+
+::: {.r-fit-text}
+* What is your experience with [{tidyverse}](https://www.tidyverse.org/)?
+* Have you read [R5DS](https://r4ds.hadley.nz/)?
+:::
+
+`r countdown(minutes = 5)`
+
+## {tidyverse} 
+
+```{r}
+#| label: tidyverse-meme
+include_local_figure("Memes/tidyverse_meme.png")
+```
+
+::: {.fragment .text-center}
+My suggestion: *Let's embrace the [{tidyverse}](https://www.tidyverse.org/)*!
+:::
+
+::: footer
+[LinkeIn - Nicholas Bell, Ph.D.](https://www.linkedin.com/pulse/tidyverse-nicholas-bell-ph-d--zftde/)
+:::
+
+## Data wrangling
+
+```{r}
+#| label: tidyverse
+include_local_figure("Illustrations/tidy_workflow.png")
+```
+
+::: footer
+[Centre for Statistics in Ecology, the Environment and Conservation (SEEC)](https://science.uct.ac.za/seec)
+:::
+
+## Data wrangling
 
 ```{r}
 #| label: code-all-meme
@@ -462,1801 +665,178 @@ knitr::include_graphics("https://guangchuangyu.github.io/blog_images/R/meme/Figs
 [create meme in R](https://guangchuangyu.github.io/2017/10/create-meme-in-r/)
 :::
 
-## All in code
+## [Practical Exercise]{.r-fit-text} {.exercise .text-center}
 
-:::: columns
-::: {.column width="50%" }
+:::{.r-fit-text}
+GOAL: Learn basic {tidyverse} principles and functions.
+:::
 
-```{r}
-#| label: tidyverse
-include_local_figure("tidy_workflow.png")
-```
+<br>
+
+### Materials:
+
+::: {.r-fit-text}
+
+* [💽Raw R code](https://github.com/SSoQE/SSoQE-Reproducibility_in_Science/blob/main/R/Exercises/01_tidyverse.qmd)
+* [🎨rendered R code](https://github.com/SSoQE/SSoQE-Reproducibility_in_Science/blob/main/R/Exercises/01_tidyverse.html.md)
 
 :::
 
+`r countdown(minutes = 15)`
+
+## Key Takeaways 🎯
+
+### Why Tidyverse?
+
+::: {.incremental}
+
+1. **Readability**: Code reads like English, making it easier to understand and maintain
+2. **Consistency**: All functions follow the same design principles
+3. **Pipes**: Chain operations together logically
+4. **Data-first**: All functions take data as the first argument (pipe-friendly)
+5. **Tidy data**: Encourage proper data structure for analysis
+
+::: 
+
+## Immutability
+
+[Do not edit raw data!]{.bold .text-highlight-persianGreen}
+
+:::: {.columns}
+
 ::: {.column width="50%"}
 
-[Do not edit raw data!]{.bold .text-color-highlight-primary}
+Have a record of all changes to raw data! 
+
+Best practice:
 
 * `Data/Input/Raw/`
 * Data wrangling in code
-* Save proceesed data (`Data/Processed/`)
-* [{tidyverse}](https://www.tidyverse.org/) for data manipulation
+* Save processed data (`Data/Processed/`)
 
-:::
-::::
-
-::: footer
-[Centre for Statistics in Ecology, the Environment and Conservation (SEEC)](https://science.uct.ac.za/seec)
-:::
-
-# [Version control]{.bold .r-fit-text} {.title}
-
-## Ring a bell ?
-
-```{r}
-#| label: final-final
-knitr::include_graphics("https://biostats-r.github.io/biostats/github/Pics/gittutorial/phd101212s.gif")
-```
-
-## What is Version Control? 🤔
-
-```{r}
-#| label: VersionControl
-include_local_figure("VersionControl.jpg")
-```
-
-::: {.textcenter}
-It is all about [keeping track]{.text-color-highlight-primary} of [changes]{.text-color-highlight-secondary} 📓✍️
-:::
-
-::: footer
-[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
-:::
-
-## Practical Exercise {.exercise .textcenter} 
-
-`r countdown(minutes = 3)`
-
-:::: columns
-
-::: {.column width="50%"}
-
-### Do you recognize some of these questions?
-
-* *It broke … hopefully I have a working version somewhere?*
-* *Can you please send me the latest version?*
-* *Which version are you using?*
-* *I am sure it used to work. When did it change?*
-* *My laptop is gone. Is my data now gone?*
-
-:::
-
-::: {.column width="50%" }
-
-### How do you keep track of changes?
-
-```{r}
-#| label: version-nightmare
-knitr::include_graphics("https://ecorepsci.github.io/reproducible-science/img/version-nightmare.png")
-```
-
-:::
-
-::::
-
-::: footer
-[Reproducible Data Science](https://ecorepsci.github.io/reproducible-science/index.html)
-:::
-
-##
-
-:::: columns
-
-::: {.column width="45%"}
-
-### Git {.textcenter}
-
-* local software
-* keep track of changes of files 
-
-<br>
-
-```{r}
-#| label: git-logo
-#| fig-width: 1
-#| fig-height: 1 
-include_local_figure("Git_icon.svg.png")
-```
-
-:::
-
-::: {.column width="10%" }
-:::
-
-::: {.column width="45%" }
-
-### GitHub {.textcenter}
-
-* host server
-* store (git) the data
-* project management, collaboration, publishing
-
-```{r}
-#| label: github-logo
-include_local_figure("Github-desktop-logo-symbol.svg.png")
-```
-
-:::
-
-::::
-
-## Git/GitHub setup AKA "git hell"
-
-```{r}
-#| label: ErrorManagement
-include_local_figure("ErrorManagement.jpg")
-```
-
-Follow instructions in [Version Control - git hell](https://ondrejmottl.github.io/VersionControl_gitHell/) (a separate presentation).
-
-::: {.blockquote}
-Getting all the necessary software installed, configured, and playing nicely together is honestly half the battle ... **Brace yourself for some pain**
-:::
-
-::: footer
-[Happy Git and GitHub for the useR](https://happygitwithr.com/install-intro) |
-[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
-:::
-
-## Basic vocabulary
-
-:::: columns
-
-::: {.column width="34%" .incremental}
-
- * [R script]{.text-color-highlight-primary} is a record of code.
- * [R Project]{.text-color-highlight-primary} is self contained project/study/paper containg R scripts, data, figures, etc.
- * Every such project is called [repository]{.text-color-highlight-secondary} (ie a *repo*) 
- * Your **local** repository is called [local]{.text-color-highlight-tertiary}
- * Your **online** repository, is called [remote]{.text-color-highlight-tertiary}
-
-:::
-
-:::{.column width="55%" .fragment}
-
-<br>
-<br>
-<br>
-
-```{r}
-#| label: local-remote
-knitr::include_graphics("https://user.oc-static.com/upload/2022/01/04/16412576933806_image30.png")
-```
-:::
-
-::::
-
-::: footer
-[https://openclassrooms.com/](https://openclassrooms.com/en/courses/7476131-manage-your-code-project-with-git-and-github/7681891-work-in-your-local-git-repository)
 ::: 
 
-## [Note on practital exercises]{.r-fit-text} {.subtitle .textcenter}
+::: {.column width="50%"}
 
 ```{r}
-#| label: practical-exercise-note
-include_local_figure("monkey_see_monkey_do_by_adiasarahma.jpg")
+#| label: superman meme
+include_local_figure("Memes/superman.png")
 ```
-
-::: footer
-[image by adiasarahma](https://www.deviantart.com/adiasarahma/)
 :::
 
-## Git init (project first)
+::::
 
-Activate [git]{.text-color-highlight-primary} for a repo 
+::: {.footer}
+[data_query_memes](https://www.instagram.com/p/Cy7QiQnvHPv/)
+:::
 
-::::: {.panel-tabset}
+## Immutability
 
-### RStudio
-
-For existing project
-
-```{r}
-#| label: git-init-rstudio
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-usethis::use_git()
-```
-
-Create new project with git tracking
-
-```{r}
-#| label: git-init-rstudio-new
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-usethis::create_project("<DIRECTORY>")
-# switch to the new project
-usethis::use_git()
-```
-
-
-### Command line
-
-For existing project
-
-```{bash}
-#| label: git-init-cl
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git init
-```
-
-Create new project with git tracking
-
-```{bash}
-#| label: git-init-cl-new
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git init <DIRECTORY>
-```
-
-### VS Code
-
-Git integration is automatic in [Source control]{.text-color-highlight-secondary} panel
-
-```{r}
-#| label: git-init-vscode
-knitr::include_graphics("https://www.sqlshack.com/wp-content/uploads/2020/07/visual-studio-code-and-git-source-control.png")
-```
-
-### GH Desktop
-
-Create new project with git tracking
+<br>
+<br>
 
 :::: {.columns}
 
-::: {.column width="25%"}
-:::
-
 ::: {.column width="50%"}
-```{r}
-#| label: git-init-GH-new
-knitr::include_graphics("https://docs.github.com/assets/cb-143755/mw-1440/images/help/desktop/lets-get-started.webp")
-```
-:::
-
-::::
-
-:::::
-
-::: footer
-[SQLShack](https://www.sqlshack.com/visual-studio-code-vs-code-integration-with-git-source-control/)
-:::
-
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
-
-::: {.r-fit-text} 
-Make a new project with Git tracking
-:::
-
-`r countdown(minutes = 3)`
-
-## Git clone (repo first)
-
-Copy (download) for  [remote repo]{.text-color-highlight-primary} to [local]{.text-color-highlight-secondary} machine
-
-Example of online repo: [SSoQE/VersionControl-playground](https://github.com/SSoQE/VersionControl-playground)
-
-::::: {.panel-tabset}
-
-
-### RStudio
 
 ```{r}
-#| label: git-clone-rstudio
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-usethis::create_from_github(
-  repo_spec = "https://github.com/<OWNER>/<REPO>.git",
-  destdir = "<DIRECTORY>",
-  fork = FALSE
-  )
+#| label: immutability visual
+include_local_figure("Illustrations/immutability.webp")
 ```
-
-### Command line
-
-```{bash}
-#| label: git-colne-cl
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git clone https://github.com/<OWNER>/<REPO>.git <DIRECTORY>
-```
-
-### VS Code
-
-Open [Command Palette]{.text-color-highlight-secondary} (`Ctrl+Shift+p`)
-
-Paste in URL: `"https://github.com/<OWNER>/<REPO>.git"`
-
-### GH Desktop
-
-```{r}
-#| label: git-clone-GH
-knitr::include_graphics("https://docs.github.com/assets/cb-10969/mw-1440/images/help/desktop/clone-file-menu-windows.webp")
-```
-
-
-:::::
-
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
-
-::: {.r-fit-text} 
-clone a repo (e.g. any repo from [SSoQE](https://github.com/orgs/SSoQE/repositories))
 :::
 
-`r countdown(minutes = 3)`
-
-## a commit
-
-A [**commit**]{.text-color-highlight-primary} is a [record]{.text-color-highlight-secondary } of a change
-
-If you create or edit a file in your repository and save the changes, you need to [record]{.text-color-highlight-secondary} your change via a [**commit**]{.text-color-highlight-primary}
-
-::::: {.fragment}
-
-### Chess analogy? 
-
-:::: columns
-
-::: {.column width="45%"}
-
-```{r}
-#| label: chess
-knitr::include_graphics("https://www.wikihow.com/images/thumb/0/06/Play-Chess-Step-28-Version-5.jpg/aid54279-v4-728px-Play-Chess-Step-28-Version-5.jpg")
-```
-
-:::
-
-::: {.column width="45%" }
-
-**Chess move diary**:
-
-* Bc4 (Bishop to c4)
-* Nf3 (Knight to f3)
-* Qc7 (Queen to c7)
-
-:::
-
-::::
-
-:::::
-
-::: footer
-[wikiHow: How to Play Chess?](https://www.wikihow.com/Play-Chess)
-:::
-
-## a commit
-
-:::: columns
-::: {.column width="45%" .textcenter} 
-```{r}
-#| label: git1-chess
-knitr::include_graphics("https://www.wikihow.com/images/thumb/c/c3/Play-Chess-Step-24-Version-5.jpg/aid54279-v4-728px-Play-Chess-Step-24-Version-5.jpg")
-```
-
-*Pawn to d4*
-:::
-
-::: {.column width="45%" .textcenter .fragment}
-```{r}
-#| label: git01
-include_local_figure("git01.png")
-```
-
-*Edit line 32 of file A*
-:::
-::::
-
-::: footer
-[wikiHow: How to Play Chess?](https://www.wikihow.com/Play-Chess)
-:::
-
-## a commit
-
-<br>
-<br>
-
-```{r}
-#| label: git02
-include_local_figure("git02.png")
-```
-
-
-## 3 states of a file 
+::: {.column width="50%" .incremental}
 
 <br>
 
-:::: columns
-::: {.column width="29%"}
-```{r}
-#| label: git-stage-scheme
-knitr::include_graphics("https://git-scm.com/images/about/index1@2x.png")
-```
-:::
-
-::: {.column width="60%" .fragment}
-```{r}
-#| label: git-stage-draw
-knitr::include_graphics("https://i0.wp.com/jessitron.com/wp-content/uploads/2012/12/27eb8-screenshot2012-12-09at2.07.55pm.png")
-```
-:::
-::::
-
-::: footer
-[git---everything-is-local](https://git-scm.com/)
-
-[jessitron](https://jessitron.com/2012/12/09/git-the-many-parts-five-categories-of-files/)
-:::
-
-## Staging changes
-
-Make a change to a file and save it. Now *stage* the change:
-
-::::: {.panel-tabset}
-
-### RStudio
-
-:::: columns
-::: {.column width="45%"}
-
-```{r}
-#| label: git-stage-rstudio
-knitr::include_graphics("https://annakrystalli.me/talks/assets/git_tab.png")
-```
-
-:::
-
-::: {.column width="45%"}
-
-* two yellow `??` indicates adding a file 
-* a blue `M` indicates edit a file that has already been committed
-* a red `D` indicates deleting a file
+1. Do not overwrite R objects!
+   + make a new object instead
+2. Do not overwrite data columns!
+   + make a new column instead
 
 :::
 
 ::::
 
-### Command line
-
-```{bash}
-#| label: git-stage-cl
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git add <FILE>
-```
-
-
-
-### VS Code
-
-:::: columns
-
-::: {.column width="20%"}
+::: {.footer}
+[arcserve](https://www.arcserve.com/blog/msps-why-immutable-storage-matters-when-it-comes-your-customers-data-protection)
 :::
 
+## [Practical Exercise]{.r-fit-text} {.exercise .text-center}
 
-::: {.column width="60%"}
-
-```{r}
-#| label: git-stage-VScode
-knitr::include_graphics("https://code.visualstudio.com/assets/docs/sourcecontrol/overview/stage-changes.png")
-```
-
+:::{.r-fit-text}
+GOAL: Learn basic Immutability principles.
 :::
 
-::: {.column width="20%"}
-:::
+<br>
 
-::::
-
-### GH Desktop
-
-:::: columns
-::: {.column width="45%"}
-
-```{r}
-#| label: git-stage-GH
-knitr::include_graphics("https://docs.github.com/assets/cb-16555/mw-1440/images/help/desktop/commit-all.webp")
-```
-
-:::
-
-::: {.column width="45%"}
-
-* The red icon indicates removed files.
-* The yellow icon indicates modified files.
-* The green icon indicates added files.
-
-:::
-
-::::
-
-:::::
-
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
-
-::: {.r-fit-text} 
-1. Make changes to a file
-2. Make a new file
-3. Stage the changes 
-:::
-
-`r countdown(minutes = 5)`
-
-
-## a first commit
-
-Commit (record) *staged* changes:
-
-::::: {.panel-tabset}
-
-### RStudio
-
-```{r}
-#| label: git-commit-rstudio
-knitr::include_graphics("https://biostats-r.github.io/biostats/github/Pics/gittutorial/19_commit_window.png")
-```
-
-### Command line
-
-```{bash}
-#| label: git-commit-cl
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git commit -am "commit message"
-```
-
-### VS Code
-
-```{r}
-#| label: git-commit-vscode
-knitr::include_graphics("https://code.visualstudio.com/assets/docs/sourcecontrol/intro/scm-staging.png")
-```
-
-### GH Desktop
-
-:::: columns
-
-::: {.column width="20%"}
-:::
-
-::: {.column width="60%"}
-```{r}
-#| label: git-commit-gh
-knitr::include_graphics("https://user-images.githubusercontent.com/359239/43204294-df0e02b8-8ff6-11e8-9a6d-e1ceb6e460e2.png")
-```
-:::
-
-::: {.column width="20%"}
-:::
-
-::::
-
-
-:::::
-
-## Review history
-
-:::: columns
-
-:::{.column width="60%"}
-
-```{bash}
-#| label: git-commit-dissection
-#| echo: true
-#| eval: false
-#| code-line-numbers: true
-$ git log --stat
-commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7
-Author: Scott Chacon <schacon@gee-mail.com>
-Date:   Sat Mar 15 16:40:33 2008 -0700
-
-    Remove unnecessary test
-
- lib/simplegit.rb | 5 -----
- 1 file changed, 5 deletions(-)
-
-commit a11bef06a3f659402fe7563abf99ad00de2209e6
-Author: Scott Chacon <schacon@gee-mail.com>
-Date:   Sat Mar 15 10:31:28 2008 -0700
-
-    Initial commit
-
- README           |  6 ++++++
- Rakefile         | 23 +++++++++++++++++++++++
- lib/simplegit.rb | 25 +++++++++++++++++++++++++
- 3 files changed, 54 insertions(+)
-```
-
-:::
-
-:::{.column width="40%"}
-
-### Dissecting a commit
-
-**SHA** - unique identifier
-
-**Author** - who has done this?
-
-**Date** - when was this done?
-
-**Message** - description of what has been done
-
-**Stats** - what has changed?
-
-:::
-
-::::
-
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
-
-::: {.r-fit-text} 
-1. commit some changes
-2. review history
-:::
-
-`r countdown(minutes = 5)`
-
-## Commit message
-
-Commits are **quick** and **cheap**. Therefore:
-
-1. commit [**often** (!)]{.text-color-highlight-primary} 
-2. provide [**useful**]{.text-color-highlight-secondary} commit messages.
-
-:::: columns
-
-::: {.column width="20%"}
-:::
-
-::: {.column width="60%" .fragment}
-```{r}
-#| label: commit-message
-knitr::include_graphics("https://biostats-r.github.io/biostats/github/Pics/gittutorial/20_git_commit.png")
-```
-:::
-
-::: {.column width="20%"}
-:::
-
-::::
-
-## Commit history
-
-```{r}
-#| label: commit-history
-knitr::include_graphics("https://happygitwithr.com/img/commit-diff-sha-tag.png")
-```
-
-::: footer
-[Happy Git and GitHub for the useR](https://happygitwithr.com/install-intro)
-:::
-
-## remote
-
-```{r}
-#| label: git-remote
-knitr::include_graphics("https://biostats-r.github.io/biostats/github/Pics/gittutorial/0_workflow_git.png")
-```
-
-::: footer
-[biostats: Version control with GitHub and RStudio](https://biostats-r.github.io/biostats/github/1_Git_Tutorial.html)
-:::
-
-## remote
-
-Now we need to *sync* chnages with the [remote]{.text-color-highlight-primary} using [**PUSH**]{.text-color-highlight-secondary}
-
-::::: {.panel-tabset}
-
-### RStudio
-
-Add a remote to existing local repo (only once):
-
-```{r}
-#| label: git-mk-remote-rstudio
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-usethis::use_github(protocol  = "https")
-```
-
-Push local to remote (GitHub):
-
-```{r}
-#| label: git-push-rstudio
-knitr::include_graphics("https://biostats-r.github.io/biostats/github/Pics/gittutorial/21_push.png")
-```
-
-### Command line
-
-Add a remote to existing local repo (only once):
-
-```{bash}
-#| label: git-mk-remote-cl
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git remote add origin https://github.com/<OWNER>/<REPO>
-```
-
-Push local to remote (GitHub):
-
-```{bash}
-#| label: git-push-cl
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git push
-```
-
-### VS Code
-
-:::: columns
-::: {.column width="60%"}
-Add a remote to existing local repo (only once):
-```{r}
-#| label: git-mk-remotze-vscode
-knitr::include_graphics("https://code.visualstudio.com/assets/docs/sourcecontrol/intro/remote-repo.png")
-```
-:::
-
-::: {.column width="40%"}
-Push local to remote (GitHub):
-```{r}
-#| label: git-push-vscode
-knitr::include_graphics("https://code.visualstudio.com/assets/docs/sourcecontrol/intro/sync.png")
-```
-:::
-::::
-
-### GH Desktop
-
-:::: columns
-::: {.column width="50%"}
-Add a remote to existing local repo (only once):
-```{r}
-#| label: git--mk-remote-GH
-knitr::include_graphics("https://docs.github.com/assets/cb-54091/mw-1440/images/help/desktop/publish-repository.webp")
-```
-:::
-
-::: {.column width="50%"}
-Push local to remote (GitHub):
-```{r}
-#| label: git-push-GH
-knitr::include_graphics("https://docs.github.com/assets/cb-17787/mw-1440/images/help/desktop/push-to-origin.webp")
-```
-:::
-::::
-
-:::::
-
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
+### Materials:
 
 ::: {.r-fit-text}
-1. Publish repo to GitHub
-2. make new commit(s)
-3. Push changes to remote
-:::
 
-`r countdown(minutes = 5)`
-
-## [GitHub intermezzo]{.r-fit-text} {.subtitle .textcenter}
-
-## A GitHub repo
-
-```{r}
-#| label: github-intermezzo
-knitr::include_graphics("https://biostats-r.github.io/biostats/github/Pics/gittutorial/10_new_repo.png")
-```
-
-::: footer
-[biostats: Version control with GitHub and RStudio](https://biostats-r.github.io/biostats/github/1_Git_Tutorial.html)
-:::
-
-## GitHub creating a repo
-
-```{r}
-#| label: gh-mk-repo-new
-include_local_figure("01_new_button.png")
-```
-
-::: footer
-[biostats: Version control with GitHub and RStudio](https://biostats-r.github.io/biostats/github/1_Git_Tutorial.html)
-:::
-
-## GitHub creating a repo
-
-```{r}
-#| label: gh-mk-repo-owner
-include_local_figure("03_owner.png")
-```
-
-::: footer
-[biostats: Version control with GitHub and RStudio](https://biostats-r.github.io/biostats/github/1_Git_Tutorial.html)
-:::
-
-## GitHub creating a repo
-
-```{r}
-#| label: gh-mk-repo-name
-include_local_figure("04_name.png")
-```
-
-::: footer
-[biostats: Version control with GitHub and RStudio](https://biostats-r.github.io/biostats/github/1_Git_Tutorial.html)
-:::
-
-## GitHub creating a repo
-
-```{r}
-#| label: gh-mk-repo-visibility
-include_local_figure("05_visibility.png")
-```
-
-::: footer
-[biostats: Version control with GitHub and RStudio](https://biostats-r.github.io/biostats/github/1_Git_Tutorial.html)
-:::
-
-## GitHub creating a repo
-
-**README** - description of the project
-
-**.gitignore** - list of files ignored by GitHub (more about it later)
-
-**license** - tell other what they can do wit your code
-
-```{r}
-#| label: gh-mk-repo-readme
-include_local_figure("06_readme.png")
-```
-
-::: footer
-[biostats: Version control with GitHub and RStudio](https://biostats-r.github.io/biostats/github/1_Git_Tutorial.html)
-:::
-
-## A note on {usethis}
-
-[{usethis} package](https://usethis.r-lib.org/index.html) provide a lot of usefull helpers
-
-* **README** - description of the project
-
-```{r}
-#| label: usethis-readme
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-usethis::use_readme_md()
-```
-
-* **LICENSE** - restict the use of your code
-
-```{r}
-#| label: usethis-licence
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-usethis::use_mit_license(name = "Ondřej Mottl")
-```
-
-* **CONTRIBUTING.md** - guidelines for contributors
-
-```{r}
-#| label: usethis-contributing
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-usethis::use_tidy_contributing()
-```
-
-* **CODE_OF_CONDUCT.md** - set the tone for discourse between contributors
-
-```{r}
-#| label: usethis-code-of-conduct
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-usethis::use_code_of_conduct()
-```
-
-## GitHub creating a repo
-
-```{r}
-#| label: gh-mk-repo-final
-include_local_figure("07_final_click.png")
-```
-
-::: footer
-[biostats: Version control with GitHub and RStudio](https://biostats-r.github.io/biostats/github/1_Git_Tutorial.html)
-:::
-
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
-
-::: {.r-fit-text}
-Create a new repo on GitHub
-:::
-
-`r countdown(minutes = 5)`
-
-## `.gitignore` file
-
-A guide to the [git]{.text-color-highlight-primary} which files [**should be ignored for detecting changes**]{.text-color-highlight-secondary}
-
-Here is an example of a **.gitignore** file:
-```{bash}
-#| label: gitignore
-#| echo: true
-#| eval: false
-#| code-line-numbers: true
-# History files
-.Rhistory
-.Rapp.history
-
-# Session Data files
-.RData
-
-# RStudio files
-.Rproj.user/
-
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
-.httr-oauth
-.Rproj.user
-
-#data (excludes everything in the folder data)
-data/*
-
-# you can make exceptions for specific files
-!data/dragon_taxonomy.csv
-
-#figures & output (excludes all figure files)
-*.png
-*.pdf
-*.jpeg
-```
-
-## update local- PULL 
-
-```{r}
-#| label: git-many-clones
-knitr::include_graphics("https://sfdctechie.wordpress.com/wp-content/uploads/2019/12/github.png")
-```
-
-::: footer
-[sfdc techie – Pavan's blog](https://sfdctechie.wordpress.com/2019/12/27/how-to-add-a-salesforce-dx-project-to-source-control-step-by-step-guide/)
-:::
-
-## update local- PULL 
-
-```{r}
-#| label: git-pull
-knitr::include_graphics("https://biostats-r.github.io/biostats/github/Pics/gittutorial/22_workflow2.png")
-```
-
-::: footer
-[biostats: Version control with GitHub and RStudio](https://biostats-r.github.io/biostats/github/1_Git_Tutorial.html)
-:::
-
-## update local- PULL 
-
-Now we need to *sync* chnages from the [remote]{.text-color-highlight-secondary} to [local]{.text-color-highlight-tertiary} the using [**PULL**]{.text-color-highlight-primary}
-
-::::: {.panel-tabset}
-
-### RStudio
-
-:::: columns
-::: {.column width="10%"}
-:::
-
-::: {.column width="70%"}
-Pull from remote (GitHub) to local
-```{r}
-#| label: git-pull-rstudio
-knitr::include_graphics("https://annakrystalli.me/talks/assets/git_tab.png")
-```
-:::
-::::
-
-### Command line
-
-Pull from remote (GitHub) to local:
-
-```{bash}
-#| label: git-pull-cl
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git pull
-```
-
-### VS Code
-
-:::: columns
-::: {.column width="10%"}
-:::
-
-::: {.column width="70%"}
-Pull from remote (GitHub) to local
-```{r}
-#| label: git-pull-vscode
-include_local_figure("vscode_sync.png")
-```
-:::
-::::
-
-### GH Desktop
-
-:::: columns
-::: {.column width="10%"}
-:::
-
-::: {.column width="70%"}
-Pull from remote (GitHub) to local
-```{r}
-#| label: git-pull-GH
-knitr::include_graphics("https://docs.github.com/assets/cb-24440/mw-1440/images/help/desktop/pull-button.webp")
-```
-:::
-::::
-
-
-:::::
-
-## Merge conflict 💩💩💩
-
-```{r}
-#| label: git-merge-conflict-vis
-knitr::include_graphics("https://www.simplilearn.com/ice9/free_resources_article_thumb/pull-push.JPG")
-```
-
-A [merge conflict]{.text-color-highlight-primary} can occur when you are changing the [same line]{.text-color-highlight-secondary} in one file [differently](.text-color-highlight-tertiary).
-
-:::footer
-[https://www.simplilearn.com/](https://www.simplilearn.com/tutorials/git-tutorial/merge-conflicts-in-git)
-:::
-
-## Merge conflict 💩💩💩
-
-<br>
-
-```{bash}
-#| label: git-merge-conflict
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-To https://github.com/picardis/myrepo.git
- ! [rejected]        master -> master (fetch first)
-error: failed to push some refs to 'https://github.com/picardis/myrepo.git'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-```
-
-:::: columns
-
-::: {.column width="50%" .fragment}
-a good strategy to avoid such conflicts: 
-
-* Commit often
-* Work in small steps
-* Push and pull regularly
-* Organize your code in small modules (scripts)
-:::
-
-::: {.column width="50%" .fragment}
-<br>
-
-Merge conflicts cannot always be avoided (but can be mitigated by [branches]{.text-color-highlight-primary}; later).
-:::
-::::
-
-## Merge conflict 💩💩💩
-
-```{bash}
-#| label: git-merge-conflict-example
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-If you have questions, please
-<<<<< HEAD
-open an issue
-=======
-ask your question in IRC.
->>>>> branch-a
-```
-
-::: {.fragment}
-
-Delete the unwanted text (including the *decorations*)
-
-```{bash}
-#| label: git-merge-conflict-example-solution
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-If you have questions, please
-ask your question in IRC.
-```
-
-Then **save the file**, **stage**, and **commit** again 
+* [💽Raw R code](https://github.com/SSoQE/SSoQE-Reproducibility_in_Science/blob/main/R/Exercises/02_immutability.qmd)
+* [🎨rendered R code](https://github.com/SSoQE/SSoQE-Reproducibility_in_Science/blob/main/R/Exercises/02_immutability.html.md)
 
 :::
 
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
+`r countdown(minutes = 15)`
 
-In pairs:
-
-:::{.r-fit-text}
-1. Clone someone's else repo
-2. Add them as a collaborator
-3. Create a merge conflict 
-4. fix it
-:::
-
-`r countdown(minutes = 5)`
-
-## Ups! I have made a mistake 😮
-
-How to undo last commit?
-
-[Variant A]{.text-color-highlight-primary}: I commited but **NOT** [pushed yet]{.text-color-highlight-tertiary}.
-
-::::: {.panel-tabset}
-
-### RStudio
-
-RStudio has a range of possibilities to work with Git and GitHub as shown in this tutorial. The **Terminal** (NOT *console*) has more commands and options and will be handy for trouble shooting.
-
-```{bash}
-#| label: git-undo-commit-rstudio
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git reset --soft HEAD@{1}
-```
-
-### Command line
-
-```{bash}
-#| label: git-undo-commit-cl
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git reset --soft HEAD@{1}
-```
-
-### VS Code
-
-Open [Command Palette]{.text-color-highlight-secondary} (`Ctrl+Shift+p`)
-
-Write [Git: Undo Last Commit]{.text-color-highlight-tertiary}
-
-### GH Desktop
-
-:::: columns
-:::{.column width="10%"}
-:::
-
-:::{.column width="70%"}
-```{r}
-#| label: git-undo-commit-GH
-knitr::include_graphics("https://docs.github.com/assets/cb-12506/mw-1440/images/help/desktop/undo-commit.webp")
-```
-:::
-::::
-
-:::::
-
-## Ups! I have made a mistake 😮
-
-How to undo last commit?
-
-[Variant B]{.text-color-highlight-secondary}: I commited but **AND** [pushed already]{.text-color-highlight-tertiary}.
-
-::::: {.panel-tabset}
-
-### RStudio
-
-We need the **Terminal** (NOT *console*) again.
-
-Copy the **SHA** of the last commit
-
-```{bash}
-#| label: git-reset-commit-rstudio
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git reset --hard <SHA>
-```
-
-### Command line
-
-Copy the **SHA** of the last commit
-
-```{bash}
-#| label: git-reset-commit-cl
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git reset --hard <SHA>
-```
-
-### VS Code
-
-In the [Source control]{.text-color-highlight-secondary} panel -> **COMMITS** section -> Right-click on the commit you want to revert to -> Select the [Reset Current Branch to Previous Commit]{.text-color-highlight-tertiary}
-
-:::: columns
-:::{.column width="10%"}
-:::
-
-:::{.column width="60%"}
-```{r}
-#| label: git-reset-commit-VScode
-knitr::include_graphics("https://www.gitkraken.com/wp-content/uploads/2022/03/gitlens-revert-commit-sidebar-1.png")
-```
-:::
-::::
-
-### GH Desktop
-
-Right-click on the commit you would like to undo to and select [Revert a commit]{.text-color-highlight-tertiary}.
-
-:::: columns
-:::{.column width="10%"}
-:::
-
-:::{.column width="70%"}
-```{r}
-#| label: git-reset-commit-GH
-knitr::include_graphics("https://docs.github.com/assets/cb-130280/mw-1440/images/help/desktop/history-tab-in-commit-sidebar.webp")
-```
-:::
-::::
-
-
-:::::
-
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
-
-:::{.r-fit-text}
-Undo/Revert commit
-:::
-
-`r countdown(minutes = 3)`
-
-# [Branches]{.r-fit-text} {.title .textcenter}
-
-## Branches
-
-```{r}
-#| label: git-branches
-knitr::include_graphics("https://miro.medium.com/v2/resize:fit:640/format:webp/1*T4HW6dnJQQz2c2soc4AeFQ.png")
-```
-
-:::footer
-[Git For Dummies](https://nicholas0010.medium.com/git-for-dummies-2-2-2874e625bf65)
-:::
-
-## Branches
-
-```{r}
-#| label: git-branches-funny
-knitr::include_graphics("https://coderefinery.github.io/git-intro/_images/gophers.png")
-```
-
-:::footer
-[coderefinery](https://coderefinery.github.io/git-intro/commits/)
-:::
-
-## Make a branch
-
-::::: {.panel-tabset}
-
-### RStudio
-
-:::: columns
-::: {.column width="70%"}
-```{r}
-#| label: git-make-branch-rstudio
-knitr::include_graphics("https://biostats-r.github.io/biostats/github/Pics/fork_branch_tutorial/5_make_new_branch.png")
-```
-:::
-
-::: {.column width="30%"}
-```{r}
-#| label: git-make-branch2-rstudio
-knitr::include_graphics("https://biostats-r.github.io/biostats/github/Pics/fork_branch_tutorial/6_name_branch.png")
-```
-:::
-::::
-
-### Command line
-
-Copy the **SHA** of the last commit
-
-```{bash}
-#| label: git-make-branch-cl
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git branch <BRANCH-NAME>
-```
-
-### VS Code
-
-:::: columns
-:::{.column width="10%"}
-:::
-
-:::{.column width="60%"}
-```{r}
-#| label: git-make-branch-VScode
-knitr::include_graphics("https://code.visualstudio.com/assets/docs/sourcecontrol/intro/scm-create-branch.png")
-```
-:::
-::::
-
-### GH Desktop
-
-:::: columns
-:::{.column width="10%"}
-:::
-
-:::{.column width="60%"}
-```{r}
-#| label: git-make-branch-GH
-knitr::include_graphics("https://docs.github.com/assets/cb-26427/mw-1440/images/help/desktop/new-branch-button-mac.webp")
-```
-:::
-::::
-
-:::::
-
-## Switching between branches (`checkout`)
-
-The default branch is called [main]{.text-color-highlight-secondary} or [master]{.text-color-highlight-secondary}
-
-‼️ Make sure that you have all changes commited before switching ‼️
-
-::::: {.panel-tabset}
-
-### RStudio
-
-:::: columns
-::: {.column width="10%"}
-:::
-
-::: {.column width="70%"}
-```{r}
-#| label: git-switch-branch-rstudio
-knitr::include_graphics("https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/img/ChangeBranch.png")
-```
-:::
-::::
-
-### Command line
-
-Copy the **SHA** of the last commit
-
-```{bash}
-#| label: git-switch-branch-cl
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git checkout  <BRANCH-NAME>
-```
-
-### VS Code
-
-:::: columns
-:::{.column width="10%"}
-:::
-
-:::{.column width="55%"}
-```{r}
-#| label: git-switch-branch-VScode
-knitr::include_graphics("https://geo-jobe.com/wp-content/uploads/2022/07/CheckoutOrCreateBranch-1.png")
-```
-:::
-::::
-
-### GH Desktop
-
-:::: columns
-:::{.column width="10%"}
-:::
-
-:::{.column width="60%"}
-```{r}
-#| label: git-switch-branch-GH
-knitr::include_graphics("https://docs.github.com/assets/cb-38142/mw-1440/images/help/desktop/select-branch-from-dropdown.webp")
-```
-:::
-::::
-
-:::::
-
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
-
-:::{.r-fit-text}
-1. Make a branch and switch
-2. commit changes
-3. push to remote
-:::
-
-`r countdown(minutes = 5)`
-
-## Merging branches
-
-```{r}
-#| label: git-merge-branch-scheme
-knitr::include_graphics("https://media.geeksforgeeks.org/wp-content/uploads/20230516192737/git-three-way-merging.png")
-```
-
-## Merging branches
-
-```{r}
-#| label: git-merge-branch-scheme2
-knitr::include_graphics("https://www.yakuter.com/wp-content/yuklemeler/1_sMJbSt3sLrC-sIsPOVRBdw.png")
-```
-
-## Pull Request (PR)
-
-Request to merge a branch
-
-```{r}
-#| label: git-pull-request-scheme
-knitr::include_graphics("https://crunchify.com/wp-content/uploads/2017/09/Github-WorkFlow-Tips-Crunchify-Tips.png")
-```
-
-## Pull Request - create
-
-After you **push** new branch, you should have a green button [Compare & pull request]{.text-color-highlight-primary}
-
-```{r}
-#| label: git-pull-request-create
-knitr::include_graphics("https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/img/CreatePullReq.png")
-```
-
-::: footer
-[Aberdeen Study Group](https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/VersionControl/)
-:::
-
-## Pull Request - components
-
-```{r}
-#| label: git-pull-request-componnets
-knitr::include_graphics("https://www.dummies.com/wp-content/uploads/github-open-pull-request.jpg")
-```
-
-::: footer
-[GitHub for dummies](https://www.dummies.com/article/technology/programming-web-design/general-programming-web-design/what-are-github-pull-requests-264741/)
-:::
-
-## Pull Request - Overview
-
-Now you can [more commits]{.text-color-highlight-primary}, (add [Comment]{.text-color-highlight-secondary} to start discussion), or [merge]{.text-color-highlight-tertiary}
-
-```{r}
-#| label: git-pull-request-overview
-knitr::include_graphics("https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/img/Merge.png")
-```
-
-::: footer
-[Aberdeen Study Group](https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/VersionControl/)
-:::
-
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
-
-:::{.r-fit-text}
-1. Create a PR
-:::
-
-`r countdown(minutes = 5)`
-
-## Note on Markdown
+## The Immutability Checklist
 
 :::: {.columns}
 
-:::: {.column width="50%"}
-You can use [Markdown]{.text-color-highlight-primary} in the description and comments
+::: {.column width="50%" .incremental}
 
-More details on [Github Docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-:::
+**✅ File Level:**
 
-::: {.column width="50%"}
-```{r}
-#| label: markdown-syntax-pr
-include_local_figure("Markdown_syntax.png")
-```
-:::
+- [ ] Raw data files in `Data/Input/Raw/` (never edited)
+- [ ] All transformations documented in R scripts
+- [ ] Processed data saved to `Data/Processed/`
+
+**✅ Object Level:**
+
+- [ ] Create new objects instead of overwriting
+- [ ] Preserve intermediate analysis steps
+
+::: 
+
+::: {.column width="50%" .incremental}
+
+**✅ Column Level:**
+
+- [ ] Add new columns instead of replacing existing ones
+- [ ] Keep original measurements alongside transformations
+- [ ] Use clear naming conventions (e.g., `_scaled`, `_log`, `_index`)
+
+::: 
+
 ::::
 
-::: footer
-[https://arminreiter.com/](https://arminreiter.com/resources/)
+## Summary of Data Science
+
+:::: {.columns}
+
+::: {.column width="50%" .blockquote .fragment}
+Use {tidyverse} !
 :::
 
-
-## Pull Request - review
-
-A tool to [review]{.text-color-highlight-primary} [suggested]{.text-color-highlight-secondary} changes
-
-```{r}
-#| label: git-pull-request-scheme2
-knitr::include_graphics("https://atlassianblog.wpengine.com/wp-content/uploads/bitbucket411-blog-1200x-branches2.png")
-```
-
-::: footer
-[https://www.atlassian.com/](https://www.atlassian.com/blog/bitbucket/5-pull-request-must-haves)
-:::
-
-## Collaboration
-
-```{r}
-#| label: GH-team-admin-roles-teaching2
-include_local_figure("FirstPullRequest.jpg")
-```
-
-::: footer
-[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
-:::
-
-
-## Pull Request - review
-
-On [someone else's PR]{.text-color-highlight-primary}, you can comment on **individual lines** or **whole files**
-
-```{r}
-#| label: git-pull-request-review
-include_local_figure("5_review.png")
-```
-
-## Pull Request - review
-
-```{r}
-#| label: git-pull-request-add-commets
-include_local_figure("Example-comments-on-GitHub_W640.jpg")
-```
-
-::: footer
-[What Are They Talking About? Analyzing Code Reviews in Pull-Based Development Model](http://dx.doi.org/10.1007/s11390-017-1783-2)
-:::
-
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
-
-:::{.r-fit-text}
-1. Make a comment on your PR
-2. Make a comment on a file in your PR
-:::
-
-`r countdown(minutes = 5)`
-
-## [Merging branches]{.r-fit-text} {.subtitle .textcenter}
-
-## Merge conflict with branch 💩
-
-Merge conflict with branches is much more pleasant😎
-
-```{r}
-#| label: git-pull-request-review2
-include_local_figure("4_merge_conflict.png")
-```
-
-## Merge conflict with branch 💩
-
-Edit the file as needed
-
-```{r}
-#| label: git-merge-conflic-gh-2
-include_local_figure("5_conflict.png")
-```
-
-## Merge conflict with branch 💩
-
-Commit the changes
-
-```{r}
-#| label: git-merge-conflic-gh-3
-include_local_figure("7_solved.png")
-```
-
-## Merging strategies
-
-:::: columns
-
-::: {.column width="34%"}
-Merge commit
-```{r}
-#| label: git-merge-strategy-merge
-knitr::include_graphics("https://lukemerrett.com/content/images/2021/08/906613c7-94fb-41a8-9c74-77895dec7f53.png")
-```
-:::
-
-::: {.column width="34%" .fragment}
-Squash & Merge
-```{r}
-#| label: git-merge-strategy-squash
-knitr::include_graphics("https://lukemerrett.com/content/images/2021/08/fa7e8e52-7037-40f9-a1fd-3dcc916d9840.png")
-```
-:::
-
-::: {.column width="30%" .fragment}
-Rebase & Merge
-```{r}
-#| label: git-merge-strategy-rebase
-knitr::include_graphics("https://lukemerrett.com/content/images/2021/08/c44e8334-f187-4386-8946-d7996f883de3.png")
-```
+::: {.column width="50%" .blockquote .fragment}
+Embrace Immutability !
 :::
 
 ::::
 
-::: footer
-[Luke Merrett](https://lukemerrett.com/different-merge-types-in-git/)
-:::
+**🚀 Practical Outcomes:**
 
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
-
-:::{.r-fit-text}
-Merge a branch
-:::
-
-`r countdown(minutes = 3)`
-
-## Delete branch
-
-We can delete branch directly on GitHub after merging
-
-```{r}
-#| label: git-pull-request-delete-branch
-knitr::include_graphics("https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/img/DeleteBranch.png")
-```
-
-::: footer
-[Aberdeen Study Group](https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/VersionControl/)
-:::
-
-## Delete branch
-
-We can also delete branch **before** merging
-
-::::: {.panel-tabset}
-
-### RStudio
-
-We need the **Terminal** (NOT *console*) again.
-
-To delete a [local]{.text-color-highlight-secondary} branch
-
-```{bash}
-#| label: git-delete-branch-local-rstudio
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git branch -d <BRANCH-NAME>
-```
-
-To delete a [remote]{.text-color-highlight-primary} branch
-
-```{bash}
-#| label: git-delete-branch-remote-rstudio
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git push origin --delete <BRANCH-NAME>
-```
-
-
-### Command line
-
-To delete a [local]{.text-color-highlight-secondary} branch
-
-```{bash}
-#| label: git-delete-branch-local-cl
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git branch -d <BRANCH-NAME>
-```
-
-To delete a [remote]{.text-color-highlight-primary} branch
-
-```{bash}
-#| label: git-delete-branch-remote-cl
-#| echo: true
-#| eval: false
-#| code-line-numbers: false
-git push origin --delete <BRANCH-NAME>
-```
-
-### VS Code
-
-Open [Command Palette]{.text-color-highlight-secondary} (`Ctrl+Shift+p`)
-
-Select [Git: Delete branch ...]{.text-color-highlight-tertiary}
-
-### GH Desktop
-
-:::: columns
-:::{.column width="10%"}
-:::
-
-:::{.column width="60%"}
-```{r}
-#| label: git-delete-branch-GH
-knitr::include_graphics("https://docs.github.com/assets/cb-28505/mw-1440/images/help/desktop/delete-branch-win.webp")
-```
-:::
-::::
-
-:::::
-
-## [Practical Exercise]{.r-fit-text} {.exercise .textcenter}
-
-:::{.r-fit-text}
-Delete a branch
-:::
-
-`r countdown(minutes = 3)`
-
-## Bonus for R users
-
-```{r}
-#| label: git-pr-helpers
-knitr::include_graphics("https://www.garrickadenbuie.com/blog/pull-request-flow-usethis/usethis-pr-flow-medium.jpg")
-```
-
-::: footer
-[Pull Request Flow with usethis](https://www.garrickadenbuie.com/blog/pull-request-flow-usethis)
-:::
-
-## This is just a teaser
-
-GitHub has a lot of [features]{.text-color-highlight-primary} and [tools]{.text-color-highlight-secondary} to make your life easier:
-
-* Project management
-* Task management
-* Collaboration
-* Dissimination
-* Automation
-* ...
-
-::: {.fragment}
-After a coffee break☕
+::: {.incremental}
+- **Debugging**: Can isolate exactly where problems occur
+- **Peer Review**: Reviewers can trace your analytical logic step-by-step
+- **Future You**: You'll understand your analysis months later
+- **Collaboration**: Others can build on and verify your work
+- **Extensions**: Easy to modify analysis without starting over
 :::
 
 # [Outro]{.bold .r-fit-text} {.title}
-
-## [This presentation]{.bold .r-fit-text} {.title}
-
-::: {.r-fit-text}
-[😸 Code on GitHub](https://github.com/SSoQE/SSoQE-Reproducibility_in_Science)
-
-[🖥️ Slides](https://ssoqe.github.io/SSoQE-Reproducibility_in_Science/)
-
-[![](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-:::
 
 ## About me
 
@@ -2265,29 +845,42 @@ After a coffee break☕
 ::: {.column width="25%"}
 ```{r}
 #| label: personal sticker
-include_local_figure("Ondrej_Mottl-transparent-shadow.png")
+include_local_figure("Author/Ondrej_Mottl-transparent-shadow.png")
 ```
 
 ```{r}
 #| label: linktree QR
-include_local_figure("qr_linktree.png")
+qr_personal_web <-
+  qrcode::qr_code(
+    "https://bit.ly/ondrej_mottl",
+    ecl = "H"
+  )
+
+qrcode::generate_svg(
+  qrcode = qr_personal_web,
+  filename = here::here("Presentation/Materials/QR/qr_personal_web.svg"),
+  foreground = ssoqe_cols['black'],
+  background = ssoqe_cols['white']
+)
+
+include_local_figure("QR/qr_personal_web.svg")
 ```
 :::
 
-::: {.column width="10%"}
+::: {.column width="5%"}
 :::
 
-::: {.column width="62%"}
-[Ondřej Mottl]{.bold .r-fit-text .text-color-primary}
+::: {.column width="70%"}
+[Ondřej Mottl]{.bold .r-fit-text .text-color-black}
 Assistant Professor at [Charles University](https://cuni.cz/UK-1.html)
-<br>
+
+Head of the 🧑‍💻 [Laboratory of Quantitative Ecology](https://ondrejmottl.github.io/lab/about_the_lab.html)
 
 * 📧 Ondrej.mottl(at)gmail.com
-* 🐦 [@OndrejMottl](https://twitter.com/OndrejMottl)
+* 🦋 [ondrejmottl.bsky.social](https://bsky.app/profile/ondrejmottl.bsky.social)
 * 🐱 [Github](https://github.com/OndrejMottl)
 * 🆔 [ORCID](https://orcid.org/0000-0002-9796-5081)
 * 🌐 [Personal webpage](https://ondrejmottl.github.io/)
-* 🧑‍💻 [Laboratory of Quantitative Ecology](https://ondrejmottl.github.io/lab/about_the_lab.html)
 :::
 
 ::::
