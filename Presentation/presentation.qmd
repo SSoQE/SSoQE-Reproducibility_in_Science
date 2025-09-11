@@ -111,8 +111,6 @@ include_local_figure("Logos/SSOQE_logo3.png")
 
 ::::
 
-
-
 ## This presentation {.title}
 
 <br>
@@ -149,6 +147,35 @@ include_local_figure("QR/qr_slides.svg")
 ```
 :::
 
+::::
+
+# [Learning Objectives]{.bold .r-fit-text} {.title}
+
+## What we'll cover today
+
+:::: {.columns}
+
+::: {.column width="45%" .incremental}
+
+### 🎯 **Main Topics**
+
+- Reproducibility
+- Projects
+- Self-containedness
+- Data Science with R
+
+:::
+
+::: {.column width="55%" .incremental}
+
+### ✅ **By the end, you'll be able to:**
+
+- Understand the importance of reproducibility in research
+- Implement best practices for project organization
+- Create self-contained R scripts and projects
+- use {tidyverse} for data science techniques
+
+:::
 ::::
 
 ## Research cycle
@@ -188,7 +215,7 @@ include_local_figure("Illustrations/openresearch.jpg")
 
 <br>
 
-:::{.r-fit-text}
+:::{.r-fit-text .blockquote}
 What is Open Science to You?
 :::
 
@@ -299,7 +326,7 @@ knitr::include_graphics("https://raps-with-r.dev/images/repro_spectrum.png")
 
 <br>
 
-:::{.r-fit-text}
+:::{.r-fit-text .blockquote}
 How reproducible is your research?
 
 What can you do to improve it?
@@ -451,7 +478,7 @@ include_local_figure("Illustrations/file-management-manual-with-text.jpg")
 
 <br>
 
-::: {.r-fit-text}
+::: {.r-fit-text .blockquote}
 * What is your current project structure?
 * What benefits do you think it has?
 :::
@@ -563,7 +590,7 @@ Artwork by [@allison_horst](https://twitter.com/allison_horst)
 
 ```{r}
 #| label: practical-exercise-note
-include_local_figure("Exercise/monkey_see_monkey_do_by_adiasarahma.jpg")
+include_local_figure("Exercise/monkey_see_monkey_do_by_adiasarahma.png")
 ```
 
 ::: footer
@@ -574,7 +601,7 @@ include_local_figure("Exercise/monkey_see_monkey_do_by_adiasarahma.jpg")
 
 <br>
 
-::: {.r-fit-text}
+::: {.r-fit-text .blockquote}
 * Install the [{renv} package](https://rstudio.github.io/renv/index.html)
 * Make a new project and initialize {renv} with `renv::init()`
 * Create a snapshot with `renv::snapshot()`
@@ -702,7 +729,7 @@ knitr::include_graphics("https://r4ds.hadley.nz/cover.jpg")
 
 <br>
 
-::: {.r-fit-text}
+::: {.r-fit-text .blockquote}
 * What is your experience with [{tidyverse}](https://www.tidyverse.org/)?
 * Have you read [R5DS](https://r4ds.hadley.nz/)?
 :::
@@ -748,7 +775,7 @@ knitr::include_graphics("https://guangchuangyu.github.io/blog_images/R/meme/Figs
 
 ## [Code Exercise]{.text-size-heading2} {.exercise .text-center}
 
-:::{.r-fit-text}
+:::{.r-fit-text .blockquote}
 GOAL: Learn basic {tidyverse} principles and functions.
 :::
 
@@ -756,7 +783,7 @@ GOAL: Learn basic {tidyverse} principles and functions.
 
 ### Materials:
 
-::: {.r-fit-text}
+::: {.blockquote}
 
 * [💽Raw R code](https://github.com/SSoQE/SSoQE-Reproducibility_in_Science/blob/main/R/Exercises/01_tidyverse.qmd)
 * [🎨rendered R code](https://github.com/SSoQE/SSoQE-Reproducibility_in_Science/blob/main/R/Exercises/01_tidyverse.html.md)
@@ -845,7 +872,7 @@ include_local_figure("Illustrations/immutability.webp")
 
 ## [Code Exercise]{.text-size-heading2} {.exercise .text-center}
 
-:::{.r-fit-text}
+:::{.r-fit-text .blockquote}
 GOAL: Learn basic Immutability principles.
 :::
 
@@ -853,7 +880,7 @@ GOAL: Learn basic Immutability principles.
 
 ### Materials:
 
-::: {.r-fit-text}
+::: {.blockquote}
 
 * [💽Raw R code](https://github.com/SSoQE/SSoQE-Reproducibility_in_Science/blob/main/R/Exercises/02_immutability.qmd)
 * [🎨rendered R code](https://github.com/SSoQE/SSoQE-Reproducibility_in_Science/blob/main/R/Exercises/02_immutability.html.md)
